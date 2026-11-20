@@ -1,0 +1,204 @@
+{
+  "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/etc/firmware",
+  "destination": "/system/vendor/etc/firmware",
+  "files": [
+    {
+      "path": "ROMv2_lm_patch_1_0_hdr.bin",
+      "bytes": 124092,
+      "sha256": "f09a91499885b24dad3f3a78ed27c13cb0543101fd8b616edf25081376bee6a7"
+    },
+    {
+      "path": "ROMv2_lm_patch_1_1_hdr.bin",
+      "bytes": 50808,
+      "sha256": "1ddc47c611b9f84fbd30079176b33aad3e34109cf2d1ff90d46606801269cdc2"
+    },
+    {
+      "path": "WIFI_RAM_CODE_6755",
+      "bytes": 377568,
+      "sha256": "b7d9c83f45e6238f68b0428a4ecdd29f42b4963dd1ce13116fcd328d5df39d6c"
+    },
+    {
+      "path": "WMT_SOC.cfg",
+      "bytes": 80,
+      "sha256": "f4a59b622a4e0c1470e475ce33f3edae43b27f1fbdeba54dc7cf07503d132880"
+    },
+    {
+      "path": "catcher_filter_1_ulwctg_n.bin",
+      "bytes": 8732,
+      "sha256": "14c3ae845d257aa017fcc942b0cffc6536d2aea0cbab2963cf4a4d3be8c45717"
+    },
+    {
+      "path": "catcher_filter_3_3g_n.bin",
+      "bytes": 7254,
+      "sha256": "9649a12eda9793450f46774f2068562c98f74ebeee7bde79e078d061adbd78c0"
+    },
+    {
+      "path": "dsp_1_ulwctg_n.bin",
+      "bytes": 948800,
+      "sha256": "27a16f2c328f83ecaf1240c8ca1e3730693f2b2293b4a94cf61993517a5740df"
+    },
+    {
+      "path": "em_filter_1_ulwctg_n.bin",
+      "bytes": 2136,
+      "sha256": "6640dc71536079eb27fc65acde390d168a716989710c366052c2774bf27dd07f"
+    },
+    {
+      "path": "modem_1_ulwctg_n.img",
+      "bytes": 16039504,
+      "sha256": "24af05337e1b56455dec8bd4d517788f02397979dc32d79f6f2d9174dea9b29f"
+    },
+    {
+      "path": "modem_3_3g_n.img",
+      "bytes": 4490064,
+      "sha256": "6769f2c709dd3369d19250d476b7aab7ce77f9833a6e01fa7b0e5b6b42f68b5c"
+    },
+    {
+      "path": "pcm_deepidle_by_mp1_m.bin",
+      "bytes": 5320,
+      "sha256": "eb7aea3697e4c6f8936d7cb4af3a4bc23f1f23e3dc518ce6cfde1259312bdabd"
+    },
+    {
+      "path": "pcm_deepidle_m.bin",
+      "bytes": 5313,
+      "sha256": "4b82ee76f6ddeb91cdcf444ee02222cd6c19a40d0872b8b7fcfa50770847c846"
+    },
+    {
+      "path": "pcm_mcdi_ddrdfs_m.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pcm_sodi_ddrdfs_by_mp1_m.bin",
+      "bytes": 7838,
+      "sha256": "ce7e1d26bc9f60a00f0e391b1920a1e3fea5955ae35ee34f1e28850baacf730c"
+    },
+    {
+      "path": "pcm_sodi_ddrdfs_m.bin",
+      "bytes": 7831,
+      "sha256": "0de9adbae30491439d62d3a656300e85c485b8f493e1368ff6c48d2f7dfcbfe4"
+    },
+    {
+      "path": "pcm_suspend_by_mp1_m.bin",
+      "bytes": 5319,
+      "sha256": "24b994f1e11f580c6f592cdef680b0e290495bf10b7cbb7af432daa4e59be253"
+    },
+    {
+      "path": "pcm_suspend_m.bin",
+      "bytes": 5312,
+      "sha256": "706a7be966bb6c02b0e01258eae488e827e3ab3e427090a1f75a0ccf4a1bc6c4"
+    },
+    {
+      "path": "tp/15101_FW_S1302_Samsung.img",
+      "bytes": 47360,
+      "sha256": "b0620866614312a86475e09f074252bd2f10a7532cc65911c6432573992195a4"
+    },
+    {
+      "path": "tp/15101_FW_S3508_Samsung.img",
+      "bytes": 96000,
+      "sha256": "0ed180c92d71a36491ca17d61fc21ebbf6a43d008d207d2fddd5d2ffa8e2a42b"
+    },
+    {
+      "path": "tp/15101_Limit_Samsung.img",
+      "bytes": 3972,
+      "sha256": "baa89399c4baceb47b9a66dc674c82619b5b58ac3e67060748819e9e3aa09ee0"
+    },
+    {
+      "path": "tp/15101_key_Limit_Samsung.img",
+      "bytes": 108,
+      "sha256": "3c345369a7ed58807da565d40fb7eda737e9423173664c5a94d67a042483d64d"
+    },
+    {
+      "path": "tp/15111_FW_S1302_Samsung.img",
+      "bytes": 47360,
+      "sha256": "fa6e00f7291e6b0a05d0bf557325edcbdf59fdd36ed11912f4d97972c524d4e9"
+    },
+    {
+      "path": "tp/15111_FW_S3508_Samsung.img",
+      "bytes": 96000,
+      "sha256": "55f51e80223b6b8d73490f35035b36d0d3360cda3545ac4b745e72747f537728"
+    },
+    {
+      "path": "tp/15111_Limit_Samsung.img",
+      "bytes": 3612,
+      "sha256": "39d413577e0223883f60b57efe1c0554cc914a836079fbc5a5939b7a5978abff"
+    },
+    {
+      "path": "tp/15111_key_Limit_Samsung.img",
+      "bytes": 108,
+      "sha256": "61aeb7c5f284120bff71cd4fa435fc31057bc6e6f8fa751afe0319778a564d1a"
+    },
+    {
+      "path": "tp/15127_FW_BIEL.img",
+      "bytes": 47104,
+      "sha256": "e7a1920e290f9d34dddc3308b041fd2139579ea664c7b45947cb21bcd70c4c2f"
+    },
+    {
+      "path": "tp/15127_FW_OFILM.img",
+      "bytes": 47104,
+      "sha256": "b70b514790aab3d3108367c82ed620f745bc49044b64af75575d3ea091666215"
+    },
+    {
+      "path": "tp/15127_FW_Truly.img",
+      "bytes": 47104,
+      "sha256": "3002f24e40be585b95afe145f848184176acd871e6271dd0ec06d4c9f082e7da"
+    },
+    {
+      "path": "tp/15127_Limit_BIEL.img",
+      "bytes": 2420,
+      "sha256": "3c2febc7bdbd47e1ca08a8198adf171daf9950910edaa32053745b935aeaf2bb"
+    },
+    {
+      "path": "tp/15127_Limit_OFILM.img",
+      "bytes": 2420,
+      "sha256": "dd5929932bbf2d0fdbbfb431fc6991bc91ead8b0aeffcf27a585f414b840a541"
+    },
+    {
+      "path": "tp/15127_Limit_Truly.img",
+      "bytes": 2420,
+      "sha256": "da515453e1efcadc82d8a3bf210a846ed55191af9d85db3f3e7b9944a25a4e00"
+    },
+    {
+      "path": "tp/16031_FW_S3320_JDI.img",
+      "bytes": 95744,
+      "sha256": "c68e84e0aaf2525ab4e6eaaa9ae707dcb838d13f07e8b79819a5f877fba46503"
+    },
+    {
+      "path": "tp/16031_Limit_JDI.img",
+      "bytes": 4108,
+      "sha256": "f80a6259fb84457d6a142a35113a0b41c9b360cb6268b8625682c449c5e043e6"
+    },
+    {
+      "path": "wifi.cfg",
+      "bytes": 40,
+      "sha256": "584702de61754e4a1a877eba66078e9fe71acafe294e04e430a2f49e7c036735"
+    }
+  ],
+  "removed_sony_files": [
+    "ROMv2_lm_patch_1_0_hdr.bin",
+    "ROMv2_lm_patch_1_1_hdr.bin",
+    "WIFI_RAM_CODE_6755",
+    "WMT_SOC.cfg",
+    "catcher_filter_1_ulwctg_n.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_C2KOnly_Test.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_Default_Embms.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_Default_IPAllOff.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_FullLog.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_SlimLog_DspAllOff.bin",
+    "customfilter/catcher_filter_1_ulwctg_n__Default.bin",
+    "customfilter/catcher_filter_1_ulwctg_n_meta.bin",
+    "em_filter_1_ulwctg_n.bin",
+    "fm_cust.cfg",
+    "libpn547_fw.so",
+    "mt6627_fm_v1_coeff.bin",
+    "mt6627_fm_v1_patch.bin",
+    "pcm_deepidle.bin",
+    "pcm_deepidle_by_mp1.bin",
+    "pcm_mcdi_ddrdfs.bin",
+    "pcm_sodi_ddrdfs.bin",
+    "pcm_sodi_ddrdfs_by_mp1.bin",
+    "pcm_suspend.bin",
+    "pcm_suspend_by_mp1.bin"
+  ],
+  "kernel_head": "2e9fa74f4c801b5904bd3a4f78833e0f163b04a8",
+  "kernel_path_change_needed": false
+}
