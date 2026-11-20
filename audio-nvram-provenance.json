@@ -1,0 +1,107 @@
+{
+  "reason": "The Sony NVRAM table uses media paths absent on A37 and has different camera sizes and custom LID assignments. Use the matching A37 NVRAM runtime; retain the Sony audio HAL and XML tuning. Install the A37 MT6750 mixer paths required by the retained MT6353 kernel codec.",
+  "files": [
+    {
+      "path": "vendor/bin/nvram_daemon",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/bin/nvram_daemon",
+      "sha256": "8147fae42589eb15cc832fb3894e53ae59d2a771c157a17f00a3415b64cda5d8",
+      "removed_sony_sha256": "de6f4685fd83accf29908f59b8d131045180bcfc0d3d35bc290b07a4fef1f3ab"
+    },
+    {
+      "path": "vendor/lib/libnvram.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libnvram.so",
+      "sha256": "83af201fe29e723d66080c296f6d34028e42971f1050b66ab51764e2b9d058fd",
+      "removed_sony_sha256": "cf5caabbbbc28036afacdaaf26a1fdf5607818b4c9f24f88531dd176ae3f0ad2"
+    },
+    {
+      "path": "vendor/lib/libcustom_nvram.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libcustom_nvram.so",
+      "sha256": "4e67fe74f992459692db992d6d70444729e018d46614342225450d5c1d139d32",
+      "removed_sony_sha256": "12d120d016f7945aa694fd51f38fb68aa37e7d46aa7512ae5e86ad3d2766be41"
+    },
+    {
+      "path": "vendor/lib/libnvram_platform.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libnvram_platform.so",
+      "sha256": "0749ed18fb3356a2e6bf7fa1644250ac30c05c43e4c24edd645a1b717fae0cb0",
+      "removed_sony_sha256": "5a2b826cb125a6b124fcb872e61c318b3e9b514e4d46de119579020b646859af"
+    },
+    {
+      "path": "vendor/lib/libnvram_sec.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libnvram_sec.so",
+      "sha256": "b606b04a317cdda2bfa45a31a4aa8b34ca4c8408f2f54e819c5f8fda1e3da63d",
+      "removed_sony_sha256": "b9199ab7ea88963eb02fee7a4a8276143ba1138ba06b362c6740a17b09211cec"
+    },
+    {
+      "path": "vendor/lib/libnvram_daemon_callback.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libnvram_daemon_callback.so",
+      "sha256": "49ab0bc414a4f76404931e4ca751ca9894bb7b76882cc65e5bf256e8ce1deab8",
+      "removed_sony_sha256": "2a02a886255ca4df04d7d3cacbd409a7a7a22fd3de58e17a4929333ab5d64f7f"
+    },
+    {
+      "path": "vendor/lib/libfile_op.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libfile_op.so",
+      "sha256": "b5dcd9f744d55a1eec30f759ed0914ca41644a4315f0844293ec93cd80f03d8d",
+      "removed_sony_sha256": "fa6e53b31eba71e42e3f8165df1fa89a80bfa2a3260345c247d79ed7ea776659"
+    },
+    {
+      "path": "vendor/lib/libhwm.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libhwm.so",
+      "sha256": "67843bacd0320275bf303c95b067135803e6112e02dd34a2ac007ff1ab4c4397",
+      "removed_sony_sha256": "6dc02bb875eda8977d4aac455327522f826b1963d4a9b498c096863bc740b621"
+    },
+    {
+      "path": "vendor/lib64/libnvram.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libnvram.so",
+      "sha256": "06bf1a77e90f0b52f968ec97bccf2d32a21a8938ff4f6a2374ee3ac4f4ccf349",
+      "removed_sony_sha256": "d58633296747ef21c92caeafc001f4ea51df0ff344297a9b204c921a6d53bbc7"
+    },
+    {
+      "path": "vendor/lib64/libcustom_nvram.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libcustom_nvram.so",
+      "sha256": "0ce58404a737d2e0cddba257433c426eae324a92a7aa6f3b9b67ee73253c081a",
+      "removed_sony_sha256": "5c18a7afed6f1bafc8252e6dd33c901eb322dde86212b823ef10cb04e31544df"
+    },
+    {
+      "path": "vendor/lib64/libnvram_platform.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libnvram_platform.so",
+      "sha256": "959abb55285521523a1d117198b5230b24aa499df5c80044863eaa341dd6391d",
+      "removed_sony_sha256": "1558c044fc71b287823e45fbe932aaeeb2a143df35ccaa1da95b062f27569ac6"
+    },
+    {
+      "path": "vendor/lib64/libnvram_sec.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libnvram_sec.so",
+      "sha256": "6408ca773a667c5b290795a96d6c816fd5ce4c6173a64e8dc7aa336705a133e5",
+      "removed_sony_sha256": "d9b148f5d16588c7b92531c526579c62aee1e3aa2523b193bc439f003c18707e"
+    },
+    {
+      "path": "vendor/lib64/libnvram_daemon_callback.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libnvram_daemon_callback.so",
+      "sha256": "377dea2087d86ab2ee2dca37d3f614b227bd3bde8d82014b2607ba79734311cd",
+      "removed_sony_sha256": "111de1dd0364e58ffcfe3b7e178e1ad6ca99ce33c90fa2718d1440d6f755111c"
+    },
+    {
+      "path": "vendor/lib64/libfile_op.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libfile_op.so",
+      "sha256": "c68f34e46e98274cfb3dc7327dbe2f7d2c90aec548d0a18d40dfe0468d21acab",
+      "removed_sony_sha256": "d9bbe03d44accf3377014424ac942b8a1c21f1aa0af7ba9906f3492240c39652"
+    },
+    {
+      "path": "vendor/lib64/libhwm.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libhwm.so",
+      "sha256": "b223b5a1ca396cddd5c8189563cd2ee5ae63c63c3098c997a0ddabba70fd75cd",
+      "removed_sony_sha256": "041d7c31e7dd2894790af4aad2f180ea8b2a5a3e8fa25d0798f6af68450d1d40"
+    },
+    {
+      "path": "vendor/etc/audio_device.xml",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/etc/audio_device_mt6750.xml",
+      "sha256": "88b58cfbefc6a87be70dabb1c24c3fdb992bc598053b5aca8b6d3d53fa397ffb"
+    }
+  ],
+  "isolated_validation": {
+    "hal_init_check": 0,
+    "output_bytes": 88200,
+    "input_16khz_mono_samples": 32000,
+    "capture_peak": 3569,
+    "capture_rms": 412.15
+  }
+}
