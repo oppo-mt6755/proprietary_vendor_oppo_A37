@@ -1,0 +1,50 @@
+{
+  "reason": "Sony r12p0 Mali requires userspace/kernel ABI 10.2, existing OPPO kernel implements ABI 8.0. Actual eglInitialize failed with EGL_NOT_INITIALIZED. Retain the current kernel and use the matching OPPO Mali library. Other Sony graphics components remain under evaluation.",
+  "files": [
+    {
+      "path": "vendor/lib/egl/libGLES_mali.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/egl/libGLES_mali.so",
+      "sha256": "4c365a043e4c9c030176e533ef619f1842730a3895c14b715760d9d2439deb27",
+      "removed_sony_sha256": "deef74fab6563cf23f86e90b1a1a71bebc8aeeb0ddc64e2faca64160713658aa"
+    },
+    {
+      "path": "vendor/lib64/egl/libGLES_mali.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/egl/libGLES_mali.so",
+      "sha256": "2420e81581bf51215b7b92823ee882153a69ca1cfecee5522e4cefe2a68ac295",
+      "removed_sony_sha256": "22cf5f9bf586267ad7f3cbea37d7adc91772b1806b9cf9213b385bcadf0025da"
+    },
+    {
+      "path": "vendor/lib/libgpu_aux.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libgpu_aux.so",
+      "sha256": "32020f7dae2394a633000d1f705cedd9be42c15fd5ffac7673baf8fcf792c779",
+      "removed_sony_sha256": "7395791df41bed70033b35ca20b5ce2889eacf0b1a5dd0c25d5fcadba0b0dd12",
+      "reason": "OPPO Mali imports GpuAuxSetBufferCropSize, absent from the Sony helper."
+    },
+    {
+      "path": "vendor/lib64/libgpu_aux.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libgpu_aux.so",
+      "sha256": "25416b538488ac465f65cbb7a2a5ec476afd1a9df4f5b1efff462715a1dffdc4",
+      "removed_sony_sha256": "da8e550a5fffb2f862ca45055cadb010411334795020c762103ec4524006031f",
+      "reason": "OPPO Mali imports GpuAuxSetBufferCropSize, absent from the Sony helper."
+    },
+    {
+      "path": "vendor/lib/hw/gralloc.mt6755.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/hw/gralloc.mt6755.so",
+      "sha256": "1c95d4ac859693ba2f51c40f51f9d7460288bea15f76f1669a51c6827326f56d",
+      "removed_sony_sha256": "5075ada3333e4e1d529e97312208d90336285b064d7c87cda27b72cd0d99033f",
+      "reason": "Sony allocates 39-int native handles; OPPO r5 GPU rejects their EGLImage import. OPPO gralloc uses 35-int handles and passes GPU pixel readback."
+    },
+    {
+      "path": "vendor/lib64/hw/gralloc.mt6755.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/hw/gralloc.mt6755.so",
+      "sha256": "29ecc297ec543eb07b19470ac1a7c4bdcb91f603c7372a999ac0f3ff6c2f85ca",
+      "removed_sony_sha256": "02fcaec53f54cd17317e0a1f98c7b10e07d098328ac041e09cac1d4dd2c3d119",
+      "reason": "Sony allocates 39-int native handles; OPPO r5 GPU rejects their EGLImage import. OPPO gralloc uses 35-int handles and passes GPU pixel readback."
+    }
+  ],
+  "hwcomposer": {
+    "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/device/oppo/mt6755-common/hwcomposer",
+    "implementation": "device/oppo/A37/hwcomposer/framebuffer_hwc.cpp",
+    "reason": "Donor 64-bit FRAME_CONFIG request 0x40584fdc vs retained kernel 0x40484fdc; session-info requests also differ. Donor frame storage is 1704 bytes vs kernel 1408 bytes. Use the kernel header directly instead of binary structure translation."
+  }
+}
