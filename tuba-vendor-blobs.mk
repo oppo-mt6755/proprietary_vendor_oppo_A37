@@ -1,3 +1,4 @@
+# The vendor subtree includes A37 firmware and the matching stock GPU runtime.
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/sony/tuba/bin,system/bin)
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/sony/tuba/usr,system/usr)
