@@ -40,6 +40,18 @@
       "sha256": "29ecc297ec543eb07b19470ac1a7c4bdcb91f603c7372a999ac0f3ff6c2f85ca",
       "removed_sony_sha256": "02fcaec53f54cd17317e0a1f98c7b10e07d098328ac041e09cac1d4dd2c3d119",
       "reason": "Sony allocates 39-int native handles; OPPO r5 GPU rejects their EGLImage import. OPPO gralloc uses 35-int handles and passes GPU pixel readback."
+    },
+    {
+      "path": "vendor/lib/libstlport.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libstlport.so",
+      "sha256": "dde288314c4734778f9ab2fa8988e1b833ce08976aa8449fa91c083bd283c297",
+      "reason": "Required C++ runtime dependency of the retained OPPO Mali driver; absent from the Sony donor."
+    },
+    {
+      "path": "vendor/lib64/libstlport.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/libstlport.so",
+      "sha256": "4b15d3077f634943607bef16a56d2d0a668fc619b0f977a7282130a8240b232e",
+      "reason": "Required C++ runtime dependency of the retained OPPO Mali driver; absent from the Sony donor."
     }
   ],
   "hwcomposer": {
