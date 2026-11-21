@@ -1,0 +1,22 @@
+{
+  "reason": "Donor sensors.mt6755 is a multi-HAL loader but no sub-HAL or hals.conf exists in the donor. Target HAL enumerates eight sensors and isolated polling returns working acceleration, light and proximity.",
+  "files": [
+    {
+      "path": "lib/hw/sensors.mt6755.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/hw/sensors.mt6755.so",
+      "sha256": "16c126d9518a9a4d890780a09165979f68ff0b2114fbc98e00489c50f33138d4",
+      "removed_sony_sha256": "88272a5c76c5095612506136ea0276d2909d7e86020a66b1ff15f71949cf2fac"
+    },
+    {
+      "path": "lib64/hw/sensors.mt6755.so",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib64/hw/sensors.mt6755.so",
+      "sha256": "9e5b666361faa0423276c55108ad06de05aed55570f015c7b74c6fd4e781df20",
+      "removed_sony_sha256": "87bec7cea7e38c1864c48e43745a2749917c0cc7351f80fa167e622e527ec41a"
+    },
+    {
+      "path": "vendor/bin/memsicd3416x",
+      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/bin/memsicd3416x",
+      "sha256": "83d6ab2fee6db346b5f2d9cdfc0a9e1294fbbc90d1024e5887d826b3186ef7ff"
+    }
+  ]
+}
