@@ -44,5 +44,6 @@
       "sha256": "e075ea7ee1869036db253b7987276acfdf0a6ed70e31aefd0d9d91de5f3dcc1a",
       "previous_sha256": "b977d8fcb53d2e25359aab8e91191e0cc4f3bd7aab096903023b6e6ebf6ca2fd"
     }
-  ]
+  ],
+  "ims_update_note": "The MAL client libraries are subsequently replaced by their paired IMS versions; see ims-provenance.json for current hashes."
 }

@@ -1,0 +1,240 @@
+{
+  "repository": "https://github.com/coolpadnote3litedevelopment/proprietary_vendor_coolpad",
+  "files": [
+    {
+      "path": "vendor/bin/volte_imcb",
+      "sha256": "dfd36e7e83a6ba9b8b42a07955d35badeb31f0e11d9a6d730065098a7fe31e4d",
+      "previous_sha256": null,
+      "source": "A37m_11_A.26_180509 factory system/bin/volte_imcb, unmodified",
+      "reason": "Factory modem requires IMC structure version 0x50; Coolpad broker 0x4f rejects the connection."
+    },
+    {
+      "path": "vendor/bin/volte_stack",
+      "sha256": "eafc4468dcd0d242c469897be0a90e6fc102aef1b27cc3333d2d1868d0f189ef",
+      "previous_sha256": null,
+      "source": "A37m_11_A.26_180509 factory system/bin/volte_stack, unmodified",
+      "reason": "Keep UA/stack wire messages paired with the version 0x50 factory broker."
+    },
+    {
+      "path": "vendor/bin/volte_ua",
+      "sha256": "0f600ba6258f0b1ea339f7c5e03964fadc237015446a108cfeccb5f56c5ae637",
+      "previous_sha256": null,
+      "source": "A37m_11_A.26_180509 factory system/bin/volte_ua, unmodified",
+      "reason": "Keep UA/stack wire messages paired with the version 0x50 factory broker."
+    },
+    {
+      "path": "vendor/bin/vtservice",
+      "sha256": "e5b055b614877eb4027c4127d2a9729f40a8632e435bc81b4f43598a95a466b5",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libamr_wrap.so",
+      "sha256": "e267377e7a91fa5b0da62b921c7c5b629ad53762640a689c635f1af57e57e95e",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libamrvt.so",
+      "sha256": "9e24a62b46cb46f7f1de27d08ca6d871b80f28f60fafb53e7d495ef768673631",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libawb_wrap.so",
+      "sha256": "647717519a34a14211bb730fa298ccb5e7ac8ed4b760aa46057234b7a9d50831",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libcomutils.so",
+      "sha256": "7a342e1a37dae0605a5942dc8f59fc060db21168518264ecd33e9600f3f2fcf1",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libimsma.so",
+      "sha256": "9e0d85193a7db55556ab9a9c92eb75b9d13884f78f9ad20de70c0eb46c0657ce",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libimsma_rtp.so",
+      "sha256": "412bd67cb811afb4fabbaf9ec49d8adeb2aabb930cd0c30f82e051d6a714d3cd",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libimsma_socketwrapper.so",
+      "sha256": "83f4ae19b730e83556151833f1ffaae45d260661c4d7519361b178fe4576a134",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_datamngr.so",
+      "sha256": "a38898ce7378504c3eafd3a3e82116afdb70669310a095dc0f0ad58970356e40",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_epdga.so",
+      "sha256": "32ced77336c9806686f92fbd375cd794674af949e832f2318eaa49c6214b8945",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_imsmngr.so",
+      "sha256": "1696986e0c19596cc6c90d8ddc85f274315e8d824ec36eb040c50369aa8abb88",
+      "previous_sha256": null,
+      "source_sha256": "030c376d038dc27bed6072067ec14842c83abc6aa3144d14290ed50c7dc3b8c9",
+      "modifications": [
+        "Use same-length /vendor/lib/volte_imsm.so path for the 32-bit MAL daemon."
+      ]
+    },
+    {
+      "path": "vendor/lib/libmal_mdmngr.so",
+      "sha256": "0754b0f6a1b3bde30ef63722e8b29288f02555cbae0a31d802b5921e3e9335d9",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_nwmngr.so",
+      "sha256": "2faa20d9ba9df4c6def955ee1ca7dc83a3183c8d047910b75173c9c3d70f2ca6",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_rds.so",
+      "sha256": "42a59188d8b9161f923979054a63a4a7b2a2a914210828baf92c6afec65b5919",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_rilproxy.so",
+      "sha256": "51ef1bc4f0da12722ba7fe3b8cbbea6f38166ecff916cab37272ab650db8143b",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmal_simmngr.so",
+      "sha256": "249cd345d82557257ce51c48adee5d27abf53a0d688f4f8d0d4a593fc07c39c0",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmtk_vt_service.so",
+      "sha256": "b68a91b01fea72c80fdadbcb5bd6d2141999d87b074d18d9ff7ec36da97167ac",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libmtk_vt_utils.so",
+      "sha256": "8454d47a4bb5b07760dd7797344b9ac034aa4e237cd705c1b2a04e3542cd0924",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libsink.so",
+      "sha256": "481cabcc5a24c41052799176a6568eff8b8266c756d966391f662a0d961940b9",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libsource.so",
+      "sha256": "1e0e0fc2cb3cb00a4b87d251a59539552c92de5a21599f9cdb68e9e95cdeab1d",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libvt_avsync.so",
+      "sha256": "866522f09427727d5b4f5d18eb4f847dc6f947af90b8823c553493c3b2d75554",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libvt_custom.so",
+      "sha256": "3a887b72c8cd4a774f01d5a7e0807c4297a840ac931f616249a4c0b63e59d5f2",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libvt_socketbind.so",
+      "sha256": "10e563091718bb72d3618b0456ab83adbbc681856866f52c5612c7d09cc3eb1e",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/libvtmal.so",
+      "sha256": "c86df927ed1ddfbbed93cd758ef79b2fa1a025b7bd7089467a47a9d4f3997f5f",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib/volte_imsm.so",
+      "sha256": "31db4f4aec4cd1ee660954f88cf400808b06c2f0ccda19358a6db0ea2f9d3fc5",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_datamngr.so",
+      "sha256": "9677d30c513ffcab452c5d172730e7c88ec631753a820f74e7f80a4f3c5b8c72",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_epdga.so",
+      "sha256": "0e6ae5ef667ee505ba88fda472f6947657984833a1bdd7f5e9431010436687d7",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_imsmngr.so",
+      "sha256": "cbd5c0855fda608aa9929b242c1f04c0353897325cf4c1b841acb41f06ef92c5",
+      "previous_sha256": null,
+      "source_sha256": "7a5e50833b48d27ed54392d9d2980620c375bbff5d35c6489efb6b8ace1611d9",
+      "modifications": [
+        "Use same-length /vendor/lib/volte_imsm.so path for the 32-bit MAL daemon."
+      ]
+    },
+    {
+      "path": "vendor/lib64/libmal_mdmngr.so",
+      "sha256": "e613c316d5d1d457b5c0c6925c43c9b710cc346ac7aaa8bfd42e0225cd6079a2",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_nwmngr.so",
+      "sha256": "e2581d56f18c37d3c1dbce079ba79789380781faffdd3220c2b6c81b6dfa9745",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_rds.so",
+      "sha256": "4efb7d82a8b14ce89cfcf84c3d2529aef73306c80fb37fd90b56c5e0460dd840",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_rilproxy.so",
+      "sha256": "c4e609a11b02d7d83acee6aefb913113f28ef365175854c953d0d09a51c609f8",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/libmal_simmngr.so",
+      "sha256": "867b8f7a339cbc685c73253c9970e7f9cfec1b94be701626a4c1bc2b9e6b4d3b",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/lib64/volte_imsm.so",
+      "sha256": "4cebc157ea14c4efd7b24c833b6da41bd380183bbfd4f84b4607a595aa64ceab",
+      "previous_sha256": null
+    },
+    {
+      "path": "vendor/bin/mtkmal",
+      "source_sha256": "fb26e42040f27e071d53a9f41186aa00ec7bf25cb862cbd2ada0f0f0bab97715",
+      "sha256": "d79c1623b5c3e6e68c9ad69349a315658f06c83aac97a684361fb2f02437c77f",
+      "previous_sha256": null,
+      "modifications": [
+        "Replace NUL-terminated /system/lib with same-length /vendor/lib for module discovery."
+      ]
+    },
+    {
+      "path": "vendor/lib/libmdfx.so",
+      "sha256": "2833725b5c7d439580ff2ecdc554cd1ee89e09bdd3bfdaacaf7bb02d46b34052",
+      "previous_sha256": "e075ea7ee1869036db253b7987276acfdf0a6ed70e31aefd0d9d91de5f3dcc1a",
+      "reason": "The MAL entity modules require task_tbl and mdfx_task_bcast_event; the Hermes 64-bit RIL keeps its own library."
+    },
+    {
+      "path": "vendor/lib/libmal.so",
+      "sha256": "c127341d3fc99aede9ba5360c1a10f8c8208c103db280ef94f7897f6289ac1a6",
+      "previous_sha256": "3004d16510f8ea6a6b10214a7f03ec713af1242a565a595441d8707bd0fe385d",
+      "reason": "The MAL IMS module requires the paired mal_init entry point."
+    },
+    {
+      "path": "vendor/lib64/libmal.so",
+      "sha256": "3b613f912774cbc102f532a76547d160ee3ea3a1de4e5e42909cad50d1ccfbac",
+      "previous_sha256": "57ed01502d877ebd0125e64f324897aa75fbeff27a771be55fc1fc97dbe4f83b",
+      "reason": "Pair the RIL MAL client codec with the 32-bit MAL daemon and its entities."
+    },
+    {
+      "path": "vendor/lib64/libmdfx.so",
+      "sha256": "c5e4ebb88e0f3920c75dc5f5e8566181c7e08a9b030971e4524373699f5c7efc",
+      "previous_sha256": "6b87263b7343915e8ed4e83801d34a89b99dd7e143afa56f912e711331faebda",
+      "reason": "Pair the RIL MAL client codec with the 32-bit MAL daemon and its entities."
+    }
+  ],
+  "unresolved_dependencies": [],
+  "source_commit": "e5ce558d1e059e84a1bee328be323c2080d38599",
+  "repository_note": "Per-file source overrides take precedence over the Coolpad donor repository."
+}
