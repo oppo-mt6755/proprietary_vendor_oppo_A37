@@ -1,0 +1,48 @@
+{
+  "repository": "https://github.com/ibilux/android_vendor_hermes",
+  "branch": "lineage-15.1",
+  "commit": "8c9d6372915e4ec4d3207e39cc4a35c0aae9125e",
+  "note": "Hermes Android M vendor RIL paired with its open-source Oreo adapter; modem firmware is unchanged.",
+  "files": [
+    {
+      "path": "vendor/lib64/mtk-ril.so",
+      "sha256": "c4a1239f7c884c83fec7001a2c7ec86c972fd202869aee572f3617fe0df608cf",
+      "previous_sha256": "4530d03d5836f69bd643c7e66e5f9af1015c3868593188060446168c227e4348"
+    },
+    {
+      "path": "vendor/lib64/librilmtk.so",
+      "sha256": "edaba0959bfab34a502e7f64e90592202305753c66839f942653086c169b1ac9",
+      "previous_sha256": "b61e2f4bcf133a7ba238e7fec15deabdf244ae2c47d4ed8b5ed42a008189d625"
+    },
+    {
+      "path": "vendor/lib/mtk-ril.so",
+      "sha256": "2d70f7bfb982cf1d3d4180366f4004c198aebe7022d2955c2701bf17f390ccf3",
+      "previous_sha256": "7ed34c1211233e2bb8d305142d7b980d24b258794b22edd329b7cf94fda75564"
+    },
+    {
+      "path": "vendor/lib/librilmtk.so",
+      "sha256": "aedbe0783a14147f2ddba588a65473d779b7c8e19f7aeb92fddb5f1b792ebca7",
+      "previous_sha256": "b56e2619d8ce16fe62cf371cb62f02954b07c17acb9ab17115b99971b9200bc0"
+    },
+    {
+      "path": "vendor/lib64/libmal.so",
+      "sha256": "57ed01502d877ebd0125e64f324897aa75fbeff27a771be55fc1fc97dbe4f83b",
+      "previous_sha256": "28a9b5f6185d703667634a81d1a862a32a0337e1a7799c25b13768d2c6d76d38"
+    },
+    {
+      "path": "vendor/lib64/libmdfx.so",
+      "sha256": "6b87263b7343915e8ed4e83801d34a89b99dd7e143afa56f912e711331faebda",
+      "previous_sha256": "ee46f0227b119278b37daf7d9f8b209e52a50d21dcf11212b491b53af415552b"
+    },
+    {
+      "path": "vendor/lib/libmal.so",
+      "sha256": "3004d16510f8ea6a6b10214a7f03ec713af1242a565a595441d8707bd0fe385d",
+      "previous_sha256": "db84edacf9f136f33d6fe900cd8a6b92fe85676f964b6ecfc5bf5a6d05b031cc"
+    },
+    {
+      "path": "vendor/lib/libmdfx.so",
+      "sha256": "e075ea7ee1869036db253b7987276acfdf0a6ed70e31aefd0d9d91de5f3dcc1a",
+      "previous_sha256": "b977d8fcb53d2e25359aab8e91191e0cc4f3bd7aab096903023b6e6ebf6ca2fd"
+    }
+  ]
+}
