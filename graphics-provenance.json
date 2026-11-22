@@ -56,11 +56,11 @@
   ],
   "hwcomposer": {
     "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/device/oppo/mt6755-common/hwcomposer",
-    "implementation": "device/oppo/A37/hwcomposer/framebuffer_hwc.cpp",
+    "implementation": "device/oppo/A37/mtk/graphics/hwcomposer/framebuffer_hwc.cpp",
     "reason": "Donor 64-bit FRAME_CONFIG request 0x40584fdc vs retained kernel 0x40484fdc; session-info requests also differ. Donor frame storage is 1704 bytes vs kernel 1408 bytes. Use the kernel header directly instead of binary structure translation."
   },
   "backlight": {
-    "implementation": "device/oppo/A37/lights/lights.c",
+    "implementation": "device/oppo/A37/mtk/lights/lights.c",
     "interface": "/sys/class/leds/lcd-backlight/brightness, 0\u2013255",
     "removed_donor_files": [
       "bin/led_service",
@@ -70,5 +70,12 @@
       "vendor/lib64/hw/lights.mt6755.so"
     ],
     "reason": "Use the retained kernel sysfs interface directly, without the Sony socket service."
+  },
+  "gralloc_extra": {
+    "repository": "https://github.com/ibilux/android_device_tree_hermes",
+    "branch": "lineage-16.0",
+    "commit": "3a0248b9a117ad1292f393b89671e972d1e2876e",
+    "implementation": "device/oppo/A37/mtk/graphics/gralloc_extra",
+    "validation": "pending runtime ABI and camera regression checks"
   }
 }
