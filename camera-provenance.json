@@ -1,0 +1,295 @@
+{
+  "integration": "Hermes-style passthrough HAL1; factory camera/ISP/3A/DP/PQ group in normal vendor paths, Sony sensor listener, Hermes MM feature ABI bridge, current platform graphics runtime. No private runtime directory.",
+  "files": [
+    {
+      "path": "vendor/bin/pq",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "2ba8b7dd4bcc341c306f520db1301a6247e942b71cb2782655913033f1592a92"
+    },
+    {
+      "path": "vendor/lib/hw/camera.mt6755.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "bd3ffd0b89dd082fa7a88037e1ddb02d2d4b9d478a9596099ac968e588d99f98"
+    },
+    {
+      "path": "vendor/lib/lib3a.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "5391a845efbd23bbe0d4767021b9f6b3987eab25cf7f239ca964816bce7a38eb"
+    },
+    {
+      "path": "vendor/lib/lib3a_sample.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "d21294629bcd376f377e78d550e65ffe7355679b01a32a1c020f9ac6786241db"
+    },
+    {
+      "path": "vendor/lib/libCustomFeature.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "b6f36a112387beae85788553eaf2c7249e55715f4bbf5146594c03a9524892c2"
+    },
+    {
+      "path": "vendor/lib/libJpgEncPipe.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "4db45476fced2afc08b14d7eb79749f6d9150c2a66b74668d0ba98ae9188812d"
+    },
+    {
+      "path": "vendor/lib/libOppoCamera.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "d86ade746cfd4fdc8a77a431bd01ba1c3e71baf5e9a04fd7ea15fa777eda1d24"
+    },
+    {
+      "path": "vendor/lib/libSonyIMX298PdafLibrary.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "70bcc84dfa46d4aa64c6e0ab5b23fc9c2aa0dde6c5d841557e89f329331e9b81"
+    },
+    {
+      "path": "vendor/lib/libcam.camadapter.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "9b1f0af3e9ef91ea21e472d21a2621af97300efcb63a5cfcfcd644d9c398df9e"
+    },
+    {
+      "path": "vendor/lib/libcam.camnode.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "9b12a23911b1d83a4c43dfe428707af496f36db70a0a1154cddbf91881e69248"
+    },
+    {
+      "path": "vendor/lib/libcam.camshot.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "8a9d5ddf502002dd01f54177413512babf7ae9399ed9c9404f05970f5dc2f0fd"
+    },
+    {
+      "path": "vendor/lib/libcam.client.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "57669f6c0940b6c868be174e7b735ec608802eec509905bcee2c68e44c5db142"
+    },
+    {
+      "path": "vendor/lib/libcam.device1.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "7099cba937bd93d8db8b6ec33949ce04b69b5129f0514f54a86a4cd08ec0af6a"
+    },
+    {
+      "path": "vendor/lib/libcam.device3.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "a59b3147224609851f4ce7d49e77b75e68af64b23411f2778e769ce2d95c9fcd"
+    },
+    {
+      "path": "vendor/lib/libcam.exif.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "d8fb59e2ef2f64f3e03903ac1ae372db620e39366a83eb9883f97a6c353064a6"
+    },
+    {
+      "path": "vendor/lib/libcam.exif.v3.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "eee7367ffa3b28422c7b4ecce8e12feaed4e8abccb8bec71b6a173911d1d6e8e"
+    },
+    {
+      "path": "vendor/lib/libcam.hal3a.v3.dng.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "d7ce715f5656b703ff11f606e791a395b7a3825262617bb17b158f9b43fa43f5"
+    },
+    {
+      "path": "vendor/lib/libcam.hal3a.v3.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "a9e4db3788657ff4ab69199303d303cddd68df856a2c9e7dbaa6133de0e0a102"
+    },
+    {
+      "path": "vendor/lib/libcam.halsensor.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "aa2fc8db5dfe4adb8b0d99c434003b32214e24f734d7aba3b1f70fa9afc3db39"
+    },
+    {
+      "path": "vendor/lib/libcam.iopipe.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "771f56d5fdad26798342bda6c70631feab70df1bde24f7c61fda652b717d52f4"
+    },
+    {
+      "path": "vendor/lib/libcam.metadata.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "f107430a37df1a5324f07b23d0165ce9508bec81ef689fde30d7880e035c6c0b"
+    },
+    {
+      "path": "vendor/lib/libcam.metadataprovider.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "bfa7327c53f732247c5c756dfcd05aaa7586d5d40e304dd56960c1e04d6b578d"
+    },
+    {
+      "path": "vendor/lib/libcam.paramsmgr.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "39f46c630e53368db4527947391b09b2665c81cb3d3f9f7e8086c620e01f99d4"
+    },
+    {
+      "path": "vendor/lib/libcam.sdkclient.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "405cec8a83ab8f86046e7454d19784e23ca9a0c6c6900900a70f5ad48751bf8b"
+    },
+    {
+      "path": "vendor/lib/libcam.utils.cpuctrl.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "222e125c6b6f656a7804dde4a797119545c507e8e0fb4d5899043cd2d4535e5e"
+    },
+    {
+      "path": "vendor/lib/libcam.utils.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "f87ffa7e6ec6497f0b576518ef6adf2cd21b92ef52c2e038cd9235f539802538"
+    },
+    {
+      "path": "vendor/lib/libcam1_utils.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "b19e6914cbc13d315e774d1e5334f1291ff0d9d1bbcec6857c129b7dbe1206e0"
+    },
+    {
+      "path": "vendor/lib/libcam3_app.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "f92a647f09081c76cb2588700cfebec32d7af35583497ce4dd5fba8d750b0e06"
+    },
+    {
+      "path": "vendor/lib/libcam3_hwnode.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "c0e58540e77458b66f0839d21f77ee8bdf3cdde964d9b5264c12ed2ba26d4367"
+    },
+    {
+      "path": "vendor/lib/libcam3_hwpipeline.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "5d2934e400176c75be2766219f9e9a506b7cfae248b14dbcd3a6f9614577f0b3"
+    },
+    {
+      "path": "vendor/lib/libcam3_pipeline.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "0b84fb9cba8caf07bb9d135bd9a48ceb1508a411c9f212dfc5b145ca59a30df3"
+    },
+    {
+      "path": "vendor/lib/libcam3_utils.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "7d90bbb95ad17255c41f0f39e828d06677cdd0b0252d734b354381cf5aed53d3"
+    },
+    {
+      "path": "vendor/lib/libcam_hwutils.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "8a8dc2f311ececcbf06e9c85651809b38cca34c38311a2a7e3d4b73be4c27862"
+    },
+    {
+      "path": "vendor/lib/libcam_mmp.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "768cbeb94c429c5644aae6085f696362e78a245875292066c9a8acb86a05c4cb"
+    },
+    {
+      "path": "vendor/lib/libcam_platform.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "b04d4dfb706791843aee69ff986354739797330307fce065a43d6ca418da7fab"
+    },
+    {
+      "path": "vendor/lib/libcam_utils.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "a7c8404f0e164f201de5cd3a7f1b4394c1904901f65c69fb6724388273ac0485"
+    },
+    {
+      "path": "vendor/lib/libcamalgo.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "78f508dc5d178307c2dd11f75055a1d49102e7fe614b541d94a478252ca8cce2"
+    },
+    {
+      "path": "vendor/lib/libcamdrv.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "0d3e6f13ac333083a3e57264e8f874e588e0181869fcb0b5bbc5d62712f66977"
+    },
+    {
+      "path": "vendor/lib/libcamera_client_mtk.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "b49542ccc543bf0ecc02fdd63005bc199b75feb27fa7d142c9111d536d5290e9"
+    },
+    {
+      "path": "vendor/lib/libcameracustom.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "2e1ba4880f8589a4316e1cbea245d74988e130259cd80be18c3589828ca09e51"
+    },
+    {
+      "path": "vendor/lib/libdngop.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "d5dfae96424d1f92355cee16e3f3387deeea53a70f1be548ec038f9db9a240e0"
+    },
+    {
+      "path": "vendor/lib/libdpframework.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "706b00eb91477b843e5e8fb9795046662c6708d4bdd0a0a41f8a97db311e4a05"
+    },
+    {
+      "path": "vendor/lib/libfeatureio.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "f992dae753d8175a764b0d52fa254f56ad495f4b5a59b8188cdf6dbb2e7f920a"
+    },
+    {
+      "path": "vendor/lib/libfeatureiodrv.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "70b0f289cd5b72e74de778693899c530cba34e45092d31fc624c9c2511b858e6"
+    },
+    {
+      "path": "vendor/lib/libhdrproc.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "2ee7958e94a2dab3bd229ae3cff29be3823ab068811587cb3567f377cbb9c512"
+    },
+    {
+      "path": "vendor/lib/libimageio.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "fcb49e956d3c7517559e7816a5eb023164adf4f3d2307eda4f00afa95615b344"
+    },
+    {
+      "path": "vendor/lib/libimageio_plat_drv.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "374f8671b67948c8b3f8a9f11fb6a6e182d7377cca0d98710d2c87b3956ff4d3"
+    },
+    {
+      "path": "vendor/lib/libmmsdkservice.feature.so",
+      "source": "ibilux/android_vendor_hermes@8c9d6372915e4ec4d3207e39cc4a35c0aae9125e",
+      "sha256": "0c59d62515c89f75b599829248b78ed6b59ec1bb2d8df1c7d5e5e9ead11eda12"
+    },
+    {
+      "path": "vendor/lib/libmmsdkservice.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "b0391ad4bbfa4a4660eec2768bd7969cd7e7e99a614805c2011f758208667eac"
+    },
+    {
+      "path": "vendor/lib/libn3d3a.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "c5b83342618e16afd3c292725cc84ba99b48faf37b020916ceefb91a4d5406be"
+    },
+    {
+      "path": "vendor/lib/libpq_cust.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "13930db0d3337ef772bf083bc1c52cd46d7fe82eefa1b8f9c25d5a9e05534044"
+    },
+    {
+      "path": "vendor/lib/libpq_prot.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "8fe7a67bd0c5d89ae69ab3a7a4a606f5c8c699d6797eb9bf1104d357dabc51ee"
+    },
+    {
+      "path": "vendor/lib/libpqservice.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "2fb7c5ec48483871211fc7f1f30c5eb6901690057a2b6020b21fad842987fe0c"
+    },
+    {
+      "path": "vendor/lib/libstlport.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "dde288314c4734778f9ab2fa8988e1b833ce08976aa8449fa91c083bd283c297"
+    },
+    {
+      "path": "vendor/lib64/libdpframework.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "a2baf1cd935b4df2387d7dc7fa97a6d7171e700cb5de8f726421738a043ae07b"
+    },
+    {
+      "path": "vendor/lib64/libpq_cust.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "c9dce5f26b55a6df492bf97b779fd2d49ff0d8f18c94aed891764d460eae5126"
+    },
+    {
+      "path": "vendor/lib64/libpq_prot.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "4ec81d7fa2832f267a99238bd495d529718687b027a9fb119dd43933e5f6900a"
+    },
+    {
+      "path": "vendor/lib64/libpqservice.so",
+      "source": "A37m_11_A.26_180509 factory",
+      "sha256": "707e17f2e1d8653f5cb369635570e6fadb262e08f71362deb44d48cbcfb0342f"
+    }
+  ]
+}
