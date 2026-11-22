@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/ibilux/android_vendor_hermes",
+  "note": "Hermes-style system lib/lib64 paths. Hermes Oreo supplies both 32-bit encoders and 64-bit aptX HD; ordinary 64-bit aptX is the Oreo marlin OPM1.171019.011 version because Hermes lineage-16.0 uses an Android 10 SCS-enabled binary incompatible with this runtime.",
+  "files": [
+    {
+      "path": "lib/libaptXHD_encoder.so",
+      "sha256": "9ff8b5095be6d9a576a07e4b065ffb78cefa48ba66f559f6880775897f62cd90",
+      "source_branch": "lineage-15.1",
+      "source_path": "proprietary/vendor/lib/libaptXHD_encoder.so"
+    },
+    {
+      "path": "lib/libaptX_encoder.so",
+      "sha256": "e8dc02ad2a3e33ce93b8eb308f16600825967a5ed77a1f67c8d11174b1841cb3",
+      "source_branch": "lineage-15.1",
+      "source_path": "proprietary/vendor/lib/libaptX_encoder.so"
+    },
+    {
+      "path": "lib64/libaptXHD_encoder.so",
+      "sha256": "cc2d1791cec1323bbfd32c536d40a4bb68a1c8db4b59a0f21f245fff2b2183e2",
+      "source_branch": "lineage-15.1",
+      "source_path": "proprietary/vendor/lib64/libaptXHD_encoder.so"
+    },
+    {
+      "path": "lib64/libaptX_encoder.so",
+      "sha256": "7818169f31a86f0b324f1728752d957068ce1a35d0cc3bcfca79bfa689c27e4f",
+      "source_branch": "lineage-15.1",
+      "repository": "https://github.com/TheMuppets/proprietary_vendor_google",
+      "source_path": "proprietary/vendor/lib64/libaptX_encoder.so"
+    }
+  ]
+}

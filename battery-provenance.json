@@ -1,15 +1,15 @@
 {
-  "reason": "Use matching target fuelgauge daemon and calibration library. The daemon dlopens the absolute /system/lib/libfgauge.so path.",
+  "reason": "Hermes Oreo fuelgauged is a loader for /vendor/lib/libfgauge.so. Retain the A37-specific algorithm library and calibration/kernel protocol; only replace the loader to avoid a system-path compatibility symlink.",
   "files": [
     {
-      "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/bin/fuelgauged",
+      "source": "https://github.com/ibilux/android_vendor_hermes/blob/lineage-15.1/proprietary/vendor/bin/fuelgauged",
       "path": "vendor/bin/fuelgauged",
-      "sha256": "6356f584e0b5a0fb04c9eac8d224f26c94037796acea7b923a0f32bce8c20ca6",
+      "sha256": "c312dc974c2ce36de5e81a21347e6f1714288f359686cb963af9d5781defa335",
       "previous_sha256": "a93b81aa77a4dcd3e766f96d75d37b2956165676c3669ded46730f680b2648ad"
     },
     {
       "source": "/home/affggh/a37-backups/20261120-190255-before-sony-restart/vendor/oppo/A37/proprietary/lib/libfgauge.so",
-      "path": "lib/libfgauge.so",
+      "path": "vendor/lib/libfgauge.so",
       "sha256": "b0eab9a1ef5323be15dc8895c6bc768a2e855ecc595f8a8acf202fb844cc7f7c",
       "previous_sha256": null
     }
