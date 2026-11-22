@@ -1,0 +1,4 @@
+# Capacitive navigation keys. The controller emits Linux KEY_MENU (139).
+key 102 HOME
+key 139 APP_SWITCH
+key 158 BACK
