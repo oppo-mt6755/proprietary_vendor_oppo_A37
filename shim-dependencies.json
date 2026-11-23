@@ -3947,6 +3947,30 @@
         "SSLv3_server_method": "TLS_server_method"
       },
       "reason": "Use the platform TLS methods for removed SSLv3 imports. No legacy SSL library, disabled verification, or global symbol shim is introduced."
+    },
+    {
+      "path": "vendor/lib/libmnl.so",
+      "add_needed": [],
+      "before_sha256": "2075f44bd31c3fc08b574dc44494bd13edef6f13526a112f5945d055bb581f4e",
+      "after_sha256": "1722620aa40c74e09bd002a420621a7b65810e7655183be8d5e8a5bf6a572bdd",
+      "needed_before": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 60752,
+          "before": "08b5064b7b4403eb8000f6f792ec002814bf4ff0ff30002008bd00bfd4cb2200",
+          "after": "08b5064b7b4403eb8000b0f900100131eed0f6f78eec4142804108bdd4cb2200",
+          "reason": "Make the local mutex table deletion helper idempotent for bionic destroyed state 0xffff. First destruction and locked-mutex errors still use pthread_mutex_destroy; reinitialization is unchanged."
+        }
+      ]
     }
   ]
 }
