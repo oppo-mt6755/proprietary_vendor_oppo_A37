@@ -24,12 +24,14 @@ Donor init scripts are excluded; the device tree supplies the validated service
 configuration. Blobs registered as native build modules are excluded from the
 generated copy rules.
 
-Shim dependencies are embedded in the 46 consuming ELFs with patchelf, rather
+Shim dependencies are embedded in the 47 consuming ELFs with patchelf, rather
 than TARGET_LD_SHIM_LIBS. shim-dependencies.json records the original/patched
 hashes and complete dependency order. Run `python3 fixup-shims.py` to verify;
 use `--apply` to reproduce the changes from original blobs with patchelf 0.18.0.
 Historical provenance hashes describe their earlier stages; this manifest records
-the final DT_NEEDED-only transformation. Code and read-only data remain unchanged.
+the final transformations. The camera client also changes its GraphicBuffer
+allocation from 128 to 136 bytes to match the platform object; the guarded
+instruction patch is recorded and reproduced before adding DT_NEEDED.
 
 Run device/oppo/A37/setup-makefiles.sh to regenerate Android.mk and A37-vendor.mk.
 Extraction uses the matching device extract-files.sh and its pinned SHA-1 list;

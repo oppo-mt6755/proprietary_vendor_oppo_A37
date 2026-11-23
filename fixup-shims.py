@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply or verify the recorded DT_NEEDED additions to original vendor ELFs."""
+"""Apply or verify recorded ABI fixes and shim dependencies on vendor ELFs."""
 import argparse
 import hashlib
 import json
@@ -35,6 +35,15 @@ def main():
             with tempfile.TemporaryDirectory(dir=path.parent) as work:
                 staged = Path(work) / path.name
                 shutil.copy2(path, staged)
+                data = bytearray(staged.read_bytes())
+                for patch in item.get("byte_patches", []):
+                    offset = patch["offset"]
+                    before = bytes.fromhex(patch["before"])
+                    after = bytes.fromhex(patch["after"])
+                    if len(before) != len(after) or data[offset:offset + len(before)] != before:
+                        raise SystemExit(f"Unexpected instruction at {offset:#x}: {path}")
+                    data[offset:offset + len(before)] = after
+                staged.write_bytes(data)
                 for shim in reversed(item["add_needed"]):
                     if shim not in item["needed_before"]:
                         subprocess.run(["patchelf", "--page-size", str(manifest["page_size"]),

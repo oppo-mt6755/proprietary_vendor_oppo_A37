@@ -785,7 +785,7 @@
         "mtkui.so"
       ],
       "before_sha256": "57669f6c0940b6c868be174e7b735ec608802eec509905bcee2c68e44c5db142",
-      "after_sha256": "a8fe73335492c171309424a701b5e473dc220e2039c9e021eb1655ed3c9ecb5c",
+      "after_sha256": "b26661206f0e51515ba0a3db3cea8cb9d583bd0193dd0be1bb24fe04227f77d9",
       "needed_before": [
         "libCustomFeature.so",
         "libJpgEncPipe.so",
@@ -846,6 +846,14 @@
         "libstlport.so",
         "libui.so",
         "libutils.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 149980,
+          "before": "8020",
+          "after": "8820",
+          "reason": "Allocate 136 bytes for the Oreo GraphicBuffer instead of the old 128-byte object (Thumb movs r0)."
+        }
       ]
     },
     {
@@ -1909,6 +1917,49 @@
         "libm.so",
         "libstdc++.so",
         "libutils.so"
+      ]
+    },
+    {
+      "path": "vendor/lib/libMtkOmxVenc.so",
+      "add_needed": [
+        "mtkui.so"
+      ],
+      "before_sha256": "d8eb5e61f86036397ae84413a183bd3ad59cc465c1ed181fdf1c0759519b98e7",
+      "after_sha256": "dd79aab4c8baf5d73e0fdc6a2d8ad389ac7ba9128526b77cb5a07eefd2850260",
+      "needed_before": [
+        "libbinder.so",
+        "libutils.so",
+        "libcutils.so",
+        "libdl.so",
+        "libui.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libgralloc_extra.so",
+        "libvcodecdrv.so",
+        "libvcodec_utility.so",
+        "libhardware.so",
+        "libdpframework.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "mtkui.so",
+        "libbinder.so",
+        "libutils.so",
+        "libcutils.so",
+        "libdl.so",
+        "libui.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libgralloc_extra.so",
+        "libvcodecdrv.so",
+        "libvcodec_utility.so",
+        "libhardware.so",
+        "libdpframework.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
       ]
     }
   ]
