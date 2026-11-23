@@ -515,7 +515,8 @@ PRODUCT_COPY_FILES += \
     vendor/oppo/A37/proprietary/vendor/lib64/vendor.mediatek.hardware.radio@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.mediatek.hardware.radio@1.1.so \
     vendor/oppo/A37/proprietary/vendor/lib64/volte_imsm.so:$(TARGET_COPY_OUT_VENDOR)/lib64/volte_imsm.so \
     vendor/oppo/A37/proprietary/vendor/usr/keylayout/ACCDET.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ACCDET.kl \
-    vendor/oppo/A37/proprietary/vendor/usr/keylayout/mtk-tpd-kpd.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/mtk-tpd-kpd.kl
+    vendor/oppo/A37/proprietary/vendor/usr/keylayout/mtk-tpd-kpd.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/mtk-tpd-kpd.kl \
+    vendor/oppo/A37/proprietary/vendor/usr/keylayout/mtk-tpd.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/mtk-tpd.kl
 
 PRODUCT_PACKAGES += \
     librilmtk \
