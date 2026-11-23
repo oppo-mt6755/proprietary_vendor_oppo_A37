@@ -48,6 +48,11 @@ def main():
                     if shim not in item["needed_before"]:
                         subprocess.run(["patchelf", "--page-size", str(manifest["page_size"]),
                                         "--add-needed", shim, str(staged)], check=True)
+                for library in item.get("remove_needed", []):
+                    subprocess.run(["patchelf", "--remove-needed", library, str(staged)], check=True)
+                for before, after in item.get("replace_needed", {}).items():
+                    subprocess.run(["patchelf", "--page-size", str(manifest["page_size"]),
+                                    "--replace-needed", before, after, str(staged)], check=True)
                 if digest(staged) != item["after_sha256"]:
                     raise SystemExit(f"Patched hash differs; use {manifest['tool']}: {path}")
                 staged.replace(path)

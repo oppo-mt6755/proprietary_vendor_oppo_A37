@@ -24,14 +24,15 @@ Donor init scripts are excluded; the device tree supplies the validated service
 configuration. Blobs registered as native build modules are excluded from the
 generated copy rules.
 
-Shim dependencies are embedded in the 56 consuming ELFs with patchelf, rather
+Shim dependencies are embedded in the 66 consuming ELFs with patchelf, rather
 than TARGET_LD_SHIM_LIBS. shim-dependencies.json records the original/patched
 hashes and complete dependency order. Run `python3 fixup-shims.py` to verify;
 use `--apply` to reproduce the changes from original blobs with patchelf 0.18.0.
 Historical provenance hashes describe their earlier stages; this manifest records
-the final transformations. The camera client and MTK encoder allocate 160-byte GraphicBuffer objects
-to match Android 10; guarded instruction patches are recorded and reproduced
-before adding DT_NEEDED.
+the final transformations. All audited legacy GraphicBuffer constructor allocations use 160-byte objects
+to match Android 10, including GPU warp teardown. The arm64 native RIL Parcel
+allocations and unwind tables likewise match Android 10. Guarded instruction
+patches are recorded and reproduced before adding DT_NEEDED.
 
 Run device/oppo/A37/setup-makefiles.sh to regenerate Android.mk and A37-vendor.mk.
 Extraction uses the matching device extract-files.sh and its pinned SHA-1 list;

@@ -284,7 +284,7 @@
         "libshim_ims_vt.so"
       ],
       "before_sha256": "c86df927ed1ddfbbed93cd758ef79b2fa1a025b7bd7089467a47a9d4f3997f5f",
-      "after_sha256": "36373b45fd6d1e5303b7e5d0efe5a341dc88594ec5bef423ce4b17e7ec2cae2c",
+      "after_sha256": "9f74115dd5523e72eb34699a041fee62fc297d59b4ffc7b8390bb3bb68b0ff7e",
       "needed_before": [
         "libbinder.so",
         "libmedia.so",
@@ -319,7 +319,6 @@
         "libcamera_client.so",
         "libmtkcam_fwkutils.so",
         "libgui.so",
-        "libskia.so",
         "libamrvt.so",
         "libblisrc.so",
         "libvt_custom.so",
@@ -333,6 +332,24 @@
         "libc++.so",
         "libc.so",
         "libm.so"
+      ],
+      "remove_needed": [
+        "libskia.so"
+      ],
+      "reason": "VT control service only: unsupported snapshot entry points fail in libshim_ims_vt; no legacy Skia runtime.",
+      "byte_patches": [
+        {
+          "offset": 206490,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        },
+        {
+          "offset": 248458,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
       ]
     },
     {
@@ -581,7 +598,7 @@
         "mtkui.so"
       ],
       "before_sha256": "9b1f0af3e9ef91ea21e472d21a2621af97300efcb63a5cfcfcd644d9c398df9e",
-      "after_sha256": "06b38fb3860b20907945087e8cee686799fff55288265894335a98cf3cb60d61",
+      "after_sha256": "c025e01ba04349505f8cccea293ad3a9ee1f6a7ea8a288d3615a890ae75c70f5",
       "needed_before": [
         "libCustomFeature.so",
         "libEGL.so",
@@ -666,12 +683,26 @@
         "liblog.so",
         "libm.so",
         "libmmsdkservice.feature.so",
-        "libperfservicenative.so",
-        "libskia.so",
+        "libshim_perf.so",
         "libstdc++.so",
         "libstlport.so",
         "libui.so",
         "libutils.so"
+      ],
+      "remove_needed": [
+        "libskia.so"
+      ],
+      "reason": "Optional camera perf hints use libshim_perf; remove unused Skia and fix HDR self-reference teardown ordering.",
+      "replace_needed": {
+        "libperfservicenative.so": "libshim_perf.so"
+      },
+      "byte_patches": [
+        {
+          "offset": 2259368,
+          "before": "10b1214615f03efd2560",
+          "after": "256010b1214615f03dfd",
+          "reason": "Publish the new HDR strong pointer before releasing the old one to prevent recursive destruction"
+        }
       ]
     },
     {
@@ -680,7 +711,7 @@
         "mtkui.so"
       ],
       "before_sha256": "9b12a23911b1d83a4c43dfe428707af496f36db70a0a1154cddbf91881e69248",
-      "after_sha256": "cbd1d390dd1f8f9407e9f736144af22ce3b8c8717d5adeb73ed784090a57a41a",
+      "after_sha256": "e1bed4ceecef9bee964f4bcf04b88f92b576e9dff0329a4407902e587adf80ec",
       "needed_before": [
         "libaed.so",
         "libc.so",
@@ -735,7 +766,22 @@
         "libstlport.so",
         "libui.so",
         "libutils.so"
-      ]
+      ],
+      "byte_patches": [
+        {
+          "offset": 346574,
+          "before": "8020",
+          "after": "a020",
+          "reason": "Allocate the complete 160-byte Q GraphicBuffer for GPU warp buffers, avoiding delayed heap corruption"
+        },
+        {
+          "offset": 347574,
+          "before": "8020",
+          "after": "a020",
+          "reason": "Allocate the complete 160-byte Q GraphicBuffer for GPU warp buffers, avoiding delayed heap corruption"
+        }
+      ],
+      "reason": "Legacy GraphicBuffer constructors and both GPU buffer allocations use the Android 10 object size."
     },
     {
       "path": "vendor/lib/libcam.camshot.so",
@@ -1419,7 +1465,7 @@
         "libutilscallstack.so"
       ],
       "before_sha256": "a7c8404f0e164f201de5cd3a7f1b4394c1904901f65c69fb6724388273ac0485",
-      "after_sha256": "1fe63d93ce4a27dc46b06b4407a80c5891c8fc6fa2fda6171abbc2b43a4a4379",
+      "after_sha256": "db7bdd544af4fb352aa13ea5916748b56115c07924f22c02fd293d7ec70046af",
       "needed_before": [
         "libaed.so",
         "libc.so",
@@ -1462,7 +1508,21 @@
         "libui.so",
         "libutils.so"
       ],
-      "reason": "CallStack moved from libutils to libutilscallstack on newer Android."
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "byte_patches": [
+        {
+          "offset": 81530,
+          "before": "8020",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        },
+        {
+          "offset": 86246,
+          "before": "8020",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
+      ]
     },
     {
       "path": "vendor/lib/libcamdrv.so",
@@ -1773,7 +1833,7 @@
         "mtkui.so"
       ],
       "before_sha256": "0c59d62515c89f75b599829248b78ed6b59ec1bb2d8df1c7d5e5e9ead11eda12",
-      "after_sha256": "0c59d62515c89f75b599829248b78ed6b59ec1bb2d8df1c7d5e5e9ead11eda12",
+      "after_sha256": "92836ff6575b8542014feab2822d74c0eaf03b2d9a1d7682697f4f1d8a5e5e98",
       "needed_before": [
         "libcam.sdkclient.so",
         "libcam_utils.so",
@@ -1805,6 +1865,20 @@
         "libc++.so",
         "mtkc.so",
         "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 94708,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        },
+        {
+          "offset": 107588,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
       ]
     },
     {
@@ -1852,7 +1926,7 @@
         "mtkui.so"
       ],
       "before_sha256": "3accf128d878ea16fd6e2878f18fa53f93913d921225f9da54745f62c16817a9",
-      "after_sha256": "14474da35c266df8d2b0a731c6570cbbd63e4ae887a38b2d1c05fab3d1afa993",
+      "after_sha256": "d61c28b0ebccf27e6c88b3f76e432d691b0a3f9442a455d4c78e7ff524ec0ed0",
       "needed_before": [
         "libgralloc_extra.so",
         "liblog.so",
@@ -1875,6 +1949,14 @@
         "libdl.so",
         "libc.so",
         "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 7002,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
       ]
     },
     {
@@ -2347,6 +2429,1489 @@
         "libstdc++.so",
         "libutils.so"
       ]
+    },
+    {
+      "path": "vendor/lib64/libcam.camadapter.so",
+      "add_needed": [],
+      "before_sha256": "dafe0a37b11f0a5de6b6868fd1bff7d07989801c957b5bb186b6f2afa3a7b6db",
+      "needed_before": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libui.so",
+        "libdl.so",
+        "libjpeg.so",
+        "libaed.so",
+        "libcamera_client.so",
+        "libmtkcam_fwkutils.so",
+        "libskia.so",
+        "libcam_utils.so",
+        "libcam1_utils.so",
+        "libcam.paramsmgr.so",
+        "libcam.exif.so",
+        "libcam.exif.v3.so",
+        "libcam_mmp.so",
+        "libcam_hwutils.so",
+        "libcamdrv.so",
+        "libimageio.so",
+        "libfeatureio.so",
+        "libcam.camshot.so",
+        "libcam.camnode.so",
+        "libJpgEncPipe.so",
+        "libdpframework.so",
+        "libcameracustom.so",
+        "libcam.halsensor.so",
+        "libdngop.so",
+        "libcamera_metadata.so",
+        "libcam.iopipe.so",
+        "libcam.utils.cpuctrl.so",
+        "libeffecthal.base.so",
+        "libperfservicenative.so",
+        "libmpbase.so",
+        "libarcsoft_antishaking.so",
+        "libarcsoft_hdr.so",
+        "libarcsoft_dynamic_light.so",
+        "libarcsoft_dro.so",
+        "libarcsoft_piczoom.so",
+        "libarcsoft_night_shot.so",
+        "libarcsoft_smart_denoise.so",
+        "libarcsoft_rer.so",
+        "libamphotofix.so",
+        "libarcsoft_selfie_correction.so",
+        "libarcsoft_nightzoom.so",
+        "libarcsoft_face_detection.so",
+        "libarcsoft_beautyshot.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "remove_needed": [
+        "libskia.so"
+      ],
+      "after_sha256": "7f570205e05096e0892f1e278e627f44c4f405e64d4c1b3e08360a3b6c4d4b36",
+      "needed_after": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libui.so",
+        "libdl.so",
+        "libjpeg.so",
+        "libaed.so",
+        "libcamera_client.so",
+        "libmtkcam_fwkutils.so",
+        "libcam_utils.so",
+        "libcam1_utils.so",
+        "libcam.paramsmgr.so",
+        "libcam.exif.so",
+        "libcam.exif.v3.so",
+        "libcam_mmp.so",
+        "libcam_hwutils.so",
+        "libcamdrv.so",
+        "libimageio.so",
+        "libfeatureio.so",
+        "libcam.camshot.so",
+        "libcam.camnode.so",
+        "libJpgEncPipe.so",
+        "libdpframework.so",
+        "libcameracustom.so",
+        "libcam.halsensor.so",
+        "libdngop.so",
+        "libcamera_metadata.so",
+        "libcam.iopipe.so",
+        "libcam.utils.cpuctrl.so",
+        "libeffecthal.base.so",
+        "libshim_perf.so",
+        "libmpbase.so",
+        "libarcsoft_antishaking.so",
+        "libarcsoft_hdr.so",
+        "libarcsoft_dynamic_light.so",
+        "libarcsoft_dro.so",
+        "libarcsoft_piczoom.so",
+        "libarcsoft_night_shot.so",
+        "libarcsoft_smart_denoise.so",
+        "libarcsoft_rer.so",
+        "libamphotofix.so",
+        "libarcsoft_selfie_correction.so",
+        "libarcsoft_nightzoom.so",
+        "libarcsoft_face_detection.so",
+        "libarcsoft_beautyshot.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "Optional camera perf hints must not use the obsolete Parcel client; no Skia imports",
+      "replace_needed": {
+        "libperfservicenative.so": "libshim_perf.so"
+      }
+    },
+    {
+      "path": "vendor/lib/libcamalgo.so",
+      "add_needed": [],
+      "before_sha256": "78f508dc5d178307c2dd11f75055a1d49102e7fe614b541d94a478252ca8cce2",
+      "needed_before": [
+        "libEGL.so",
+        "libGLESv2.so",
+        "libbinder.so",
+        "libc.so",
+        "libcamdrv.so",
+        "libcutils.so",
+        "libgralloc_extra.so",
+        "libgui.so",
+        "liblog.so",
+        "libm.so",
+        "libmtk_drvb.so",
+        "libperfservicenative.so",
+        "libstdc++.so",
+        "libui.so",
+        "libutils.so"
+      ],
+      "replace_needed": {
+        "libperfservicenative.so": "libshim_perf.so"
+      },
+      "after_sha256": "a8e3a02faf8491d22fac59c95f129f2ed8f560c38699be730082c6b81ba6436b",
+      "needed_after": [
+        "libEGL.so",
+        "libGLESv2.so",
+        "libbinder.so",
+        "libc.so",
+        "libcamdrv.so",
+        "libcutils.so",
+        "libgralloc_extra.so",
+        "libgui.so",
+        "liblog.so",
+        "libm.so",
+        "libmtk_drvb.so",
+        "libshim_perf.so",
+        "libstdc++.so",
+        "libui.so",
+        "libutils.so"
+      ],
+      "reason": "Optional camera perf hints must not use the obsolete Parcel client"
+    },
+    {
+      "path": "vendor/lib/libimsma_rtp.so",
+      "add_needed": [],
+      "before_sha256": "412bd67cb811afb4fabbaf9ec49d8adeb2aabb930cd0c30f82e051d6a714d3cd",
+      "needed_before": [
+        "libbinder.so",
+        "libmedia.so",
+        "libutils.so",
+        "libcutils.so",
+        "libui.so",
+        "libgui.so",
+        "libskia.so",
+        "libstagefright.so",
+        "libstagefright_foundation.so",
+        "libimsma_socketwrapper.so",
+        "libvt_avsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "remove_needed": [
+        "libskia.so"
+      ],
+      "after_sha256": "9baa3b297b0823af41b872de3dd968be32a14babadacc4d56818339e9b50726f",
+      "needed_after": [
+        "libbinder.so",
+        "libmedia.so",
+        "libutils.so",
+        "libcutils.so",
+        "libui.so",
+        "libgui.so",
+        "libstagefright.so",
+        "libstagefright_foundation.so",
+        "libimsma_socketwrapper.so",
+        "libvt_avsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "Unused Skia dependency: no Skia imports"
+    },
+    {
+      "path": "vendor/lib/libimsma_socketwrapper.so",
+      "add_needed": [],
+      "before_sha256": "83f4ae19b730e83556151833f1ffaae45d260661c4d7519361b178fe4576a134",
+      "needed_before": [
+        "libbinder.so",
+        "libmedia.so",
+        "libutils.so",
+        "libcutils.so",
+        "libui.so",
+        "libgui.so",
+        "libskia.so",
+        "libstagefright.so",
+        "libstagefright_foundation.so",
+        "libnetd_client.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "remove_needed": [
+        "libskia.so"
+      ],
+      "after_sha256": "ef5a8439ab769e716f729437ac2910b52abf081218377c67592b6928239a45b2",
+      "needed_after": [
+        "libbinder.so",
+        "libmedia.so",
+        "libutils.so",
+        "libcutils.so",
+        "libui.so",
+        "libgui.so",
+        "libstagefright.so",
+        "libstagefright_foundation.so",
+        "libnetd_client.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "Unused Skia dependency: no Skia imports"
+    },
+    {
+      "path": "vendor/lib64/librilmtk.so",
+      "add_needed": [],
+      "before_sha256": "edaba0959bfab34a502e7f64e90592202305753c66839f942653086c169b1ac9",
+      "after_sha256": "d98f08eced16e16b6bc7b273752b7dd43036a6dc1d99d7f131f4e76fb6e912e9",
+      "needed_before": [
+        "mtklog.so",
+        "libutils.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libhardware_legacy.so",
+        "librilutils.so",
+        "libc++.so",
+        "libdl.so",
+        "mtkc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "mtklog.so",
+        "libutils.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libhardware_legacy.so",
+        "librilutils.so",
+        "libc++.so",
+        "libdl.so",
+        "mtkc.so",
+        "libm.so"
+      ],
+      "reason": "Android 10 Parcel grows from 104 to 120 bytes on arm64; resize all constructor allocations and preserve unwind metadata.",
+      "byte_patches": [
+        {
+          "offset": 51036,
+          "before": "fd7bb3a9",
+          "after": "fd7bb1a9",
+          "reason": "Parcel stack frame 208 -> 240 bytes at 0x1375c"
+        },
+        {
+          "offset": 51100,
+          "before": "fd7bcda8",
+          "after": "fd7bcfa8",
+          "reason": "Restore expanded frame at 0x1375c"
+        },
+        {
+          "offset": 51324,
+          "before": "fd7bcda8",
+          "after": "fd7bcfa8",
+          "reason": "Restore expanded frame at 0x1375c"
+        },
+        {
+          "offset": 69676,
+          "before": "fd7ba8a9",
+          "after": "fd7ba6a9",
+          "reason": "Parcel stack frame 384 -> 416 bytes at 0x1802c"
+        },
+        {
+          "offset": 70336,
+          "before": "fd7bd8a8",
+          "after": "fd7bdaa8",
+          "reason": "Restore expanded frame at 0x1802c"
+        },
+        {
+          "offset": 71696,
+          "before": "fd7ba9a9",
+          "after": "fd7ba7a9",
+          "reason": "Parcel stack frame 368 -> 400 bytes at 0x18810"
+        },
+        {
+          "offset": 72248,
+          "before": "fd7bd7a8",
+          "after": "fd7bd9a8",
+          "reason": "Restore expanded frame at 0x18810"
+        },
+        {
+          "offset": 75900,
+          "before": "fd7bb2a9",
+          "after": "fd7bb0a9",
+          "reason": "Parcel stack frame 224 -> 256 bytes at 0x1987c"
+        },
+        {
+          "offset": 76140,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x1987c"
+        },
+        {
+          "offset": 76484,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x1987c"
+        },
+        {
+          "offset": 78172,
+          "before": "fd7baba9",
+          "after": "fd7ba3a9",
+          "reason": "Parcel stack frame 336 -> 464 bytes at 0x1a15c"
+        },
+        {
+          "offset": 79132,
+          "before": "fd7bd5a8",
+          "after": "fd7bdda8",
+          "reason": "Restore expanded frame at 0x1a15c"
+        },
+        {
+          "offset": 100500,
+          "before": "fd7ba8a9",
+          "after": "fd7ba6a9",
+          "reason": "Parcel stack frame 384 -> 416 bytes at 0x1f894"
+        },
+        {
+          "offset": 101092,
+          "before": "fd7bd8a8",
+          "after": "fd7bdaa8",
+          "reason": "Restore expanded frame at 0x1f894"
+        },
+        {
+          "offset": 101908,
+          "before": "fd7bada9",
+          "after": "fd7ba5a9",
+          "reason": "Parcel stack frame 304 -> 432 bytes at 0x1fe14"
+        },
+        {
+          "offset": 102356,
+          "before": "fd7bd3a8",
+          "after": "fd7bdba8",
+          "reason": "Restore expanded frame at 0x1fe14"
+        },
+        {
+          "offset": 104320,
+          "before": "fd7bb2a9",
+          "after": "fd7bb0a9",
+          "reason": "Parcel stack frame 224 -> 256 bytes at 0x20780"
+        },
+        {
+          "offset": 104556,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x20780"
+        },
+        {
+          "offset": 104640,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x20780"
+        },
+        {
+          "offset": 104712,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x20780"
+        },
+        {
+          "offset": 104868,
+          "before": "fd7bcea8",
+          "after": "fd7bd0a8",
+          "reason": "Restore expanded frame at 0x20780"
+        },
+        {
+          "offset": 69956,
+          "before": "b4630491",
+          "after": "b4a30491",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 71976,
+          "before": "b4230491",
+          "after": "b4630491",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 100780,
+          "before": "b4630491",
+          "after": "b4a30491",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 78500,
+          "before": "b7030291",
+          "after": "b7430591",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 80348,
+          "before": "b7030291",
+          "after": "b7430591",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 102068,
+          "before": "b6830191",
+          "after": "b6c30491",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 102476,
+          "before": "b6830191",
+          "after": "b6c30491",
+          "reason": "Move Parcel into nonoverlapping 120-byte slot"
+        },
+        {
+          "offset": 112456,
+          "before": "000d80d2",
+          "after": "000f80d2",
+          "reason": "Allocate sizeof(android::Parcel) = 120 on Android 10"
+        },
+        {
+          "offset": 113220,
+          "before": "000d80d2",
+          "after": "000f80d2",
+          "reason": "Allocate sizeof(android::Parcel) = 120 on Android 10"
+        },
+        {
+          "offset": 115184,
+          "before": "000d80d2",
+          "after": "000f80d2",
+          "reason": "Allocate sizeof(android::Parcel) = 120 on Android 10"
+        },
+        {
+          "offset": 169515,
+          "before": "d001",
+          "after": "f001",
+          "reason": "Unwind CFA 208 -> 240"
+        },
+        {
+          "offset": 169518,
+          "before": "1a",
+          "after": "1e",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169520,
+          "before": "19",
+          "after": "1d",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169526,
+          "before": "16",
+          "after": "1a",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169528,
+          "before": "15",
+          "after": "19",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169530,
+          "before": "18",
+          "after": "1c",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169532,
+          "before": "17",
+          "after": "1b",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169534,
+          "before": "14",
+          "after": "18",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169536,
+          "before": "13",
+          "after": "17",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 169538,
+          "before": "12",
+          "after": "16",
+          "reason": "Unwind saved register for frame 0x1375c"
+        },
+        {
+          "offset": 172467,
+          "before": "8003",
+          "after": "a003",
+          "reason": "Unwind CFA 384 -> 416"
+        },
+        {
+          "offset": 172470,
+          "before": "30",
+          "after": "34",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172472,
+          "before": "2f",
+          "after": "33",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172479,
+          "before": "24",
+          "after": "28",
+          "reason": "Unwind frame 0x1802c"
+        },
+        {
+          "offset": 172482,
+          "before": "23",
+          "after": "27",
+          "reason": "Unwind frame 0x1802c"
+        },
+        {
+          "offset": 172484,
+          "before": "28",
+          "after": "2c",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172486,
+          "before": "27",
+          "after": "2b",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172488,
+          "before": "26",
+          "after": "2a",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172490,
+          "before": "25",
+          "after": "29",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172493,
+          "before": "2c",
+          "after": "30",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172495,
+          "before": "2b",
+          "after": "2f",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172497,
+          "before": "2a",
+          "after": "2e",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172499,
+          "before": "29",
+          "after": "2d",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172501,
+          "before": "2e",
+          "after": "32",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172503,
+          "before": "2d",
+          "after": "31",
+          "reason": "Unwind saved register for frame 0x1802c"
+        },
+        {
+          "offset": 172506,
+          "before": "22",
+          "after": "26",
+          "reason": "Unwind frame 0x1802c"
+        },
+        {
+          "offset": 172835,
+          "before": "f002",
+          "after": "9003",
+          "reason": "Unwind CFA 368 -> 400"
+        },
+        {
+          "offset": 172838,
+          "before": "2e",
+          "after": "32",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172840,
+          "before": "2d",
+          "after": "31",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172847,
+          "before": "22",
+          "after": "26",
+          "reason": "Unwind frame 0x18810"
+        },
+        {
+          "offset": 172850,
+          "before": "21",
+          "after": "25",
+          "reason": "Unwind frame 0x18810"
+        },
+        {
+          "offset": 172852,
+          "before": "24",
+          "after": "28",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172854,
+          "before": "23",
+          "after": "27",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172857,
+          "before": "2a",
+          "after": "2e",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172859,
+          "before": "29",
+          "after": "2d",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172861,
+          "before": "28",
+          "after": "2c",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172863,
+          "before": "27",
+          "after": "2b",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172865,
+          "before": "26",
+          "after": "2a",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172867,
+          "before": "25",
+          "after": "29",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172869,
+          "before": "2c",
+          "after": "30",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 172871,
+          "before": "2b",
+          "after": "2f",
+          "reason": "Unwind saved register for frame 0x18810"
+        },
+        {
+          "offset": 173147,
+          "before": "e001",
+          "after": "8002",
+          "reason": "Unwind CFA 224 -> 256"
+        },
+        {
+          "offset": 173150,
+          "before": "1c",
+          "after": "20",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173152,
+          "before": "1b",
+          "after": "1f",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173158,
+          "before": "1a",
+          "after": "1e",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173160,
+          "before": "19",
+          "after": "1d",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173162,
+          "before": "16",
+          "after": "1a",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173164,
+          "before": "15",
+          "after": "19",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173166,
+          "before": "14",
+          "after": "18",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173168,
+          "before": "13",
+          "after": "17",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173170,
+          "before": "18",
+          "after": "1c",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173172,
+          "before": "17",
+          "after": "1b",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173174,
+          "before": "12",
+          "after": "16",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173176,
+          "before": "11",
+          "after": "15",
+          "reason": "Unwind saved register for frame 0x1987c"
+        },
+        {
+          "offset": 173251,
+          "before": "d002",
+          "after": "d003",
+          "reason": "Unwind CFA 336 -> 464"
+        },
+        {
+          "offset": 173254,
+          "before": "2a",
+          "after": "3a",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173256,
+          "before": "29",
+          "after": "39",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173262,
+          "before": "28",
+          "after": "38",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173264,
+          "before": "27",
+          "after": "37",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173267,
+          "before": "26",
+          "after": "36",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173269,
+          "before": "25",
+          "after": "35",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173272,
+          "before": "24",
+          "after": "34",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173274,
+          "before": "23",
+          "after": "33",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173276,
+          "before": "22",
+          "after": "32",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173278,
+          "before": "21",
+          "after": "31",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173280,
+          "before": "20",
+          "after": "30",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173282,
+          "before": "1f",
+          "after": "2f",
+          "reason": "Unwind saved register for frame 0x1a15c"
+        },
+        {
+          "offset": 173285,
+          "before": "1e",
+          "after": "2e",
+          "reason": "Unwind frame 0x1a15c"
+        },
+        {
+          "offset": 178731,
+          "before": "8003",
+          "after": "a003",
+          "reason": "Unwind CFA 384 -> 416"
+        },
+        {
+          "offset": 178734,
+          "before": "30",
+          "after": "34",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178736,
+          "before": "2f",
+          "after": "33",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178742,
+          "before": "28",
+          "after": "2c",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178744,
+          "before": "27",
+          "after": "2b",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178747,
+          "before": "24",
+          "after": "28",
+          "reason": "Unwind frame 0x1f894"
+        },
+        {
+          "offset": 178750,
+          "before": "23",
+          "after": "27",
+          "reason": "Unwind frame 0x1f894"
+        },
+        {
+          "offset": 178752,
+          "before": "26",
+          "after": "2a",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178754,
+          "before": "25",
+          "after": "29",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178757,
+          "before": "2c",
+          "after": "30",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178759,
+          "before": "2b",
+          "after": "2f",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178761,
+          "before": "2a",
+          "after": "2e",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178763,
+          "before": "29",
+          "after": "2d",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178765,
+          "before": "2e",
+          "after": "32",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178767,
+          "before": "2d",
+          "after": "31",
+          "reason": "Unwind saved register for frame 0x1f894"
+        },
+        {
+          "offset": 178770,
+          "before": "22",
+          "after": "26",
+          "reason": "Unwind frame 0x1f894"
+        },
+        {
+          "offset": 178899,
+          "before": "b002",
+          "after": "b003",
+          "reason": "Unwind CFA 304 -> 432"
+        },
+        {
+          "offset": 178902,
+          "before": "26",
+          "after": "36",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178904,
+          "before": "25",
+          "after": "35",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178910,
+          "before": "24",
+          "after": "34",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178912,
+          "before": "23",
+          "after": "33",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178915,
+          "before": "22",
+          "after": "32",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178917,
+          "before": "21",
+          "after": "31",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178919,
+          "before": "1e",
+          "after": "2e",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178921,
+          "before": "1d",
+          "after": "2d",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178924,
+          "before": "20",
+          "after": "30",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 178926,
+          "before": "1f",
+          "after": "2f",
+          "reason": "Unwind saved register for frame 0x1fe14"
+        },
+        {
+          "offset": 179163,
+          "before": "e001",
+          "after": "8002",
+          "reason": "Unwind CFA 224 -> 256"
+        },
+        {
+          "offset": 179166,
+          "before": "1c",
+          "after": "20",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179168,
+          "before": "1b",
+          "after": "1f",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179174,
+          "before": "1a",
+          "after": "1e",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179176,
+          "before": "19",
+          "after": "1d",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179178,
+          "before": "16",
+          "after": "1a",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179180,
+          "before": "15",
+          "after": "19",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179182,
+          "before": "14",
+          "after": "18",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179184,
+          "before": "13",
+          "after": "17",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179186,
+          "before": "18",
+          "after": "1c",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179188,
+          "before": "17",
+          "after": "1b",
+          "reason": "Unwind saved register for frame 0x20780"
+        },
+        {
+          "offset": 179190,
+          "before": "12",
+          "after": "16",
+          "reason": "Unwind saved register for frame 0x20780"
+        }
+      ]
+    },
+    {
+      "path": "vendor/lib64/mtk-ril.so",
+      "add_needed": [],
+      "before_sha256": "c4a1239f7c884c83fec7001a2c7ec86c972fd202869aee572f3617fe0df608cf",
+      "needed_before": [
+        "libcutils.so",
+        "libutils.so",
+        "libnetutils.so",
+        "libril.so",
+        "librilutils.so",
+        "libaed.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libc++.so",
+        "libdl.so",
+        "mtkc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libcutils.so",
+        "libutils.so",
+        "libnetutils.so",
+        "libril.so",
+        "librilutils.so",
+        "libaed.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libc++.so",
+        "libdl.so",
+        "mtkc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 114816,
+          "before": "030300f0",
+          "after": "060200b4",
+          "reason": "A null AT response skips both diagnostic dereferences and response release; retain disabled feature"
+        },
+        {
+          "offset": 114832,
+          "before": "63e02d91",
+          "after": "83e22d91",
+          "reason": "Use the existing x20 rodata page for the unchanged diagnostic format"
+        }
+      ],
+      "after_sha256": "2c3ee8b1d257a3fbabc230464bbceaf71c7a83134ca41dee729029ec26668a70",
+      "reason": "Check the AT+ESSP response before logging its fields; preserve the native error handling."
+    },
+    {
+      "path": "vendor/lib/libmal_simmngr.so",
+      "add_needed": [],
+      "before_sha256": "249cd345d82557257ce51c48adee5d27abf53a0d688f4f8d0d4a593fc07c39c0",
+      "needed_before": [
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libmdfx.so",
+        "libc++.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libmdfx.so",
+        "libc++.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 59868,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 59872,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 59876,
+          "before": "c0caffeb",
+          "after": "c3caffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 60960,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 60964,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 60968,
+          "before": "afc9ffeb",
+          "after": "b2c9ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 24548,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 24552,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 24556,
+          "before": "3eedffeb",
+          "after": "41edffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 26044,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 26048,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 26052,
+          "before": "c8ebffeb",
+          "after": "cbebffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 28716,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 28720,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 28724,
+          "before": "2ce9ffeb",
+          "after": "2fe9ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 30684,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 30688,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 30692,
+          "before": "40e7ffeb",
+          "after": "43e7ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 31208,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 31212,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 31216,
+          "before": "bde6ffeb",
+          "after": "c0e6ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 32564,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 32568,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 32572,
+          "before": "6ae5ffeb",
+          "after": "6de5ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        },
+        {
+          "offset": 36700,
+          "before": "1010a0e3",
+          "after": "0010a0e3",
+          "reason": "Initialize empty SIM field with memset, not snprintf(NULL)"
+        },
+        {
+          "offset": 36704,
+          "before": "0020a0e3",
+          "after": "1020a0e3",
+          "reason": "Clear the full 16-byte field"
+        },
+        {
+          "offset": 36708,
+          "before": "60e1ffeb",
+          "after": "63e1ffeb",
+          "reason": "Use memset(dest, 0, 16)"
+        }
+      ],
+      "after_sha256": "fc0bce5e5ff85b8814df17e3233f0d33b73e9b924a5a7dbc279eb1a9409f4333",
+      "reason": "Initialize empty SIM fields explicitly; Android 10 rejects the old null snprintf format which triggered a modem reset loop."
+    },
+    {
+      "path": "vendor/lib/libeffecthal.base.so",
+      "add_needed": [],
+      "before_sha256": "2d7878a2e4660041a60f852edf036edfef632c316a980cee36147bf21b168575",
+      "needed_before": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libui.so",
+        "libstdc++.so",
+        "libdl.so",
+        "libgui.so",
+        "libcam_utils.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libui.so",
+        "libstdc++.so",
+        "libdl.so",
+        "libgui.so",
+        "libcam_utils.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 86382,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        },
+        {
+          "offset": 88312,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
+      ],
+      "after_sha256": "b1aa0fcbf0be23ffb8826177cfe76d8cb7c70efc937ecb8b0315cfd5679acb66"
+    },
+    {
+      "path": "vendor/lib/libgui_ext.so",
+      "add_needed": [],
+      "before_sha256": "58e48f49a2dce91489c73f1a28894f92494a5cc0b2f9501bad1cd34411542f1e",
+      "needed_before": [
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libhardware.so",
+        "libhardware_legacy.so",
+        "libgui.so",
+        "libui.so",
+        "libdl.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libgralloc_extra.so",
+        "libui_ext.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libhardware.so",
+        "libhardware_legacy.so",
+        "libgui.so",
+        "libui.so",
+        "libdl.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libgralloc_extra.so",
+        "libui_ext.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 46806,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
+      ],
+      "after_sha256": "7f7cfb1dc3cf4891b49fc7f7f734563bef29336210beea15f01d5eef79d83256"
+    },
+    {
+      "path": "vendor/lib/libui_ext.so",
+      "add_needed": [],
+      "before_sha256": "d1cb1c12e5c137b9ed8fad0cb199bd159db9c80ebb1fda3ecdb2ad153ccfdd34",
+      "needed_before": [
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libhardware.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libpng.so",
+        "libui.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libutils.so",
+        "libcutils.so",
+        "libbinder.so",
+        "libhardware.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libpng.so",
+        "libui.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 21228,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        },
+        {
+          "offset": 21432,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object; audited constructor call site"
+        }
+      ],
+      "after_sha256": "5a0ae1b87c26e56575f1d0cbab84f795ffb71f7f8df8355e4e899290757a538b"
     }
   ]
 }
