@@ -25,7 +25,7 @@ Donor init scripts are excluded; the device tree supplies the validated service
 configuration. Blobs registered as native build modules are excluded from the
 generated copy rules.
 
-Shim dependencies are embedded in the 66 consuming ELFs with patchelf, rather
+ABI fixes and shim dependencies are recorded for 67 consuming ELFs with patchelf, rather
 than TARGET_LD_SHIM_LIBS. shim-dependencies.json records the original/patched
 hashes and complete dependency order. Run `python3 fixup-shims.py` to verify;
 use `--apply` to reproduce the changes from original blobs with patchelf 0.18.0.
@@ -41,3 +41,7 @@ factory files have no pin, while donor/local files are verified before replaceme
 
 Android 10 moved CallStack into libutilscallstack. Its legacy consumers carry
 that DT_NEEDED dependency directly; no global libutils replacement is used.
+
+The AGPS daemon references the platform TLS client/server methods in place of
+removed SSLv3 imports. The symbol rename is reproduced by fixup-shims.py and
+does not add a legacy TLS library or change certificate-verification settings.

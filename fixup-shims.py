@@ -44,6 +44,14 @@ def main():
                         raise SystemExit(f"Unexpected instruction at {offset:#x}: {path}")
                     data[offset:offset + len(before)] = after
                 staged.write_bytes(data)
+                if item.get("rename_dynamic_symbols"):
+                    symbol_map = Path(work) / "symbols.map"
+                    symbol_map.write_text("".join(
+                        f"{before} {after}\n" for before, after in
+                        item["rename_dynamic_symbols"].items()))
+                    subprocess.run(["patchelf", "--page-size", str(manifest["page_size"]),
+                                    "--rename-dynamic-symbols", str(symbol_map), str(staged)],
+                                   check=True)
                 for shim in reversed(item["add_needed"]):
                     if shim not in item["needed_before"]:
                         subprocess.run(["patchelf", "--page-size", str(manifest["page_size"]),

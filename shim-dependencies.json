@@ -3912,6 +3912,41 @@
         }
       ],
       "after_sha256": "5a0ae1b87c26e56575f1d0cbab84f795ffb71f7f8df8355e4e899290757a538b"
+    },
+    {
+      "path": "vendor/bin/mtk_agpsd",
+      "add_needed": [],
+      "before_sha256": "c1fd6a519e60f4c7d8a4735094dbbb8bfcb80cfa921409b85231f640fd5bf12b",
+      "after_sha256": "b91fbc69cd9ca162f62f338239e5a47790e1dfc1b4b87f38af081dfa6c1e69fb",
+      "needed_before": [
+        "libcutils.so",
+        "libcrypto.so",
+        "libssl.so",
+        "libdl.so",
+        "libicuuc.so",
+        "libandroid.so",
+        "liblog.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libcutils.so",
+        "libcrypto.so",
+        "libssl.so",
+        "libdl.so",
+        "libicuuc.so",
+        "libandroid.so",
+        "liblog.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "rename_dynamic_symbols": {
+        "SSLv3_client_method": "TLS_client_method",
+        "SSLv3_server_method": "TLS_server_method"
+      },
+      "reason": "Use the platform TLS methods for removed SSLv3 imports. No legacy SSL library, disabled verification, or global symbol shim is introduced."
     }
   ]
 }
