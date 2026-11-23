@@ -5,10 +5,11 @@
     {
       "path": "vendor/lib/egl/libGLES_mali.so",
       "add_needed": [
-        "libshim_atomic.so"
+        "libshim_atomic.so",
+        "libutilscallstack.so"
       ],
       "before_sha256": "4c365a043e4c9c030176e533ef619f1842730a3895c14b715760d9d2439deb27",
-      "after_sha256": "bccc77cd66ec82a15d52b3b9b329303a98c2c2ee642ed6068db9d411f0ca4198",
+      "after_sha256": "ed022b5d0759f381fc1e8a34810281cd7f89826974a098bc6ab1e1f1e595b313",
       "needed_before": [
         "libbinder.so",
         "libc.so",
@@ -30,6 +31,7 @@
       ],
       "needed_after": [
         "libshim_atomic.so",
+        "libutilscallstack.so",
         "libbinder.so",
         "libc.so",
         "libcutils.so",
@@ -47,7 +49,8 @@
         "libsync.so",
         "libui.so",
         "libutils.so"
-      ]
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android."
     },
     {
       "path": "vendor/lib/libgpu_aux.so",
@@ -83,10 +86,11 @@
     {
       "path": "vendor/lib64/egl/libGLES_mali.so",
       "add_needed": [
-        "libshim_atomic.so"
+        "libshim_atomic.so",
+        "libutilscallstack.so"
       ],
       "before_sha256": "2420e81581bf51215b7b92823ee882153a69ca1cfecee5522e4cefe2a68ac295",
-      "after_sha256": "d3ba19ae44547de4d9234301988c6a425e0861ae3bb92c04a2241755ad446c75",
+      "after_sha256": "e5d7496961cc4143dfc8436cced59c59ac3d9b5c26944ab63f8ec96577cd594a",
       "needed_before": [
         "libbinder.so",
         "libc.so",
@@ -108,6 +112,7 @@
       ],
       "needed_after": [
         "libshim_atomic.so",
+        "libutilscallstack.so",
         "libbinder.so",
         "libc.so",
         "libcutils.so",
@@ -125,7 +130,8 @@
         "libsync.so",
         "libui.so",
         "libutils.so"
-      ]
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android."
     },
     {
       "path": "vendor/lib64/libgpu_aux.so",
@@ -375,10 +381,11 @@
     {
       "path": "vendor/lib/libsource.so",
       "add_needed": [
-        "libshim_ims_vt.so"
+        "libshim_ims_vt.so",
+        "libutilscallstack.so"
       ],
       "before_sha256": "1e0e0fc2cb3cb00a4b87d251a59539552c92de5a21599f9cdb68e9e95cdeab1d",
-      "after_sha256": "3d64b5fb18c782d30d5b386d117e927d2870e9bfb428b44a78a627f4c87229d4",
+      "after_sha256": "8b9748571b1bf4d3fc1265006bc9f74d02d2241b13d7bed7d5e71e1089f21fdd",
       "needed_before": [
         "libbinder.so",
         "libcutils.so",
@@ -398,6 +405,7 @@
       ],
       "needed_after": [
         "libshim_ims_vt.so",
+        "libutilscallstack.so",
         "libbinder.so",
         "libcutils.so",
         "libgui.so",
@@ -413,7 +421,8 @@
         "libdl.so",
         "libc.so",
         "libm.so"
-      ]
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android."
     },
     {
       "path": "vendor/lib/libcomutils.so",
@@ -785,7 +794,7 @@
         "mtkui.so"
       ],
       "before_sha256": "57669f6c0940b6c868be174e7b735ec608802eec509905bcee2c68e44c5db142",
-      "after_sha256": "b26661206f0e51515ba0a3db3cea8cb9d583bd0193dd0be1bb24fe04227f77d9",
+      "after_sha256": "26e584a6d0dc6bab88a6798ace17b8a296b06c1190e3d13e7ed09305d9f51688",
       "needed_before": [
         "libCustomFeature.so",
         "libJpgEncPipe.so",
@@ -851,8 +860,8 @@
         {
           "offset": 149980,
           "before": "8020",
-          "after": "8820",
-          "reason": "Allocate 136 bytes for the Oreo GraphicBuffer instead of the old 128-byte object (Thumb movs r0)."
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object."
         }
       ]
     },
@@ -1406,10 +1415,11 @@
     {
       "path": "vendor/lib/libcam_utils.so",
       "add_needed": [
-        "mtkui.so"
+        "mtkui.so",
+        "libutilscallstack.so"
       ],
       "before_sha256": "a7c8404f0e164f201de5cd3a7f1b4394c1904901f65c69fb6724388273ac0485",
-      "after_sha256": "319bb78d44503dcb1f39184bdb9c74908fc73a06ccb4ab7f2f1615fff58c20fb",
+      "after_sha256": "1fe63d93ce4a27dc46b06b4407a80c5891c8fc6fa2fda6171abbc2b43a4a4379",
       "needed_before": [
         "libaed.so",
         "libc.so",
@@ -1432,6 +1442,7 @@
       ],
       "needed_after": [
         "mtkui.so",
+        "libutilscallstack.so",
         "libaed.so",
         "libc.so",
         "libcamera_client.so",
@@ -1450,7 +1461,8 @@
         "libsync.so",
         "libui.so",
         "libutils.so"
-      ]
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android."
     },
     {
       "path": "vendor/lib/libcamdrv.so",
@@ -1868,10 +1880,11 @@
     {
       "path": "vendor/lib/libpqservice.so",
       "add_needed": [
-        "mtklog.so"
+        "mtklog.so",
+        "libshim_binder.so"
       ],
       "before_sha256": "2fb7c5ec48483871211fc7f1f30c5eb6901690057a2b6020b21fad842987fe0c",
-      "after_sha256": "86501ae5603de2926721f75d2390a150c36895ee85be4393c616c8babd8f1037",
+      "after_sha256": "88650ea2c1a347e2b54b7a9c6a6336a9a7999cdcc797c4e21eb14ff5cb5b2bc1",
       "needed_before": [
         "libbinder.so",
         "libc.so",
@@ -1883,6 +1896,7 @@
       ],
       "needed_after": [
         "mtklog.so",
+        "libshim_binder.so",
         "libbinder.so",
         "libc.so",
         "libcutils.so",
@@ -1890,15 +1904,17 @@
         "libm.so",
         "libstdc++.so",
         "libutils.so"
-      ]
+      ],
+      "reason": "Forward the removed IInterface instance asBinder method to its static replacement."
     },
     {
       "path": "vendor/lib64/libpqservice.so",
       "add_needed": [
-        "mtklog.so"
+        "mtklog.so",
+        "libshim_binder.so"
       ],
       "before_sha256": "707e17f2e1d8653f5cb369635570e6fadb262e08f71362deb44d48cbcfb0342f",
-      "after_sha256": "b84c656eb6dfebd324920001e8b6aec745abe30c9c9f45aabc3fdce06fb66b8a",
+      "after_sha256": "2f276335c4764341bf56dc10b4fabfdfc01aba43edeefd8a31cc2f785264d820",
       "needed_before": [
         "libbinder.so",
         "libc.so",
@@ -1910,6 +1926,7 @@
       ],
       "needed_after": [
         "mtklog.so",
+        "libshim_binder.so",
         "libbinder.so",
         "libc.so",
         "libcutils.so",
@@ -1917,7 +1934,8 @@
         "libm.so",
         "libstdc++.so",
         "libutils.so"
-      ]
+      ],
+      "reason": "Forward the removed IInterface instance asBinder method to its static replacement."
     },
     {
       "path": "vendor/lib/libMtkOmxVenc.so",
@@ -1925,7 +1943,7 @@
         "mtkui.so"
       ],
       "before_sha256": "d8eb5e61f86036397ae84413a183bd3ad59cc465c1ed181fdf1c0759519b98e7",
-      "after_sha256": "dd79aab4c8baf5d73e0fdc6a2d8ad389ac7ba9128526b77cb5a07eefd2850260",
+      "after_sha256": "f2423065624573604324290745ec8465efd8c157f95365d4ecfa92a861ba8f4c",
       "needed_before": [
         "libbinder.so",
         "libutils.so",
@@ -1960,6 +1978,374 @@
         "libc++.so",
         "libc.so",
         "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 69970,
+          "before": "4ff08800",
+          "after": "4ff0a000",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object."
+        },
+        {
+          "offset": 81302,
+          "before": "8820",
+          "after": "a020",
+          "reason": "Allocate the 160-byte Android 10 GraphicBuffer object."
+        }
+      ]
+    },
+    {
+      "path": "vendor/lib/libaudiocomponentengine.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "dd2df011078a908ca67beef4ef3ebda65510e21ac3dc63de479fba5c9bfb35c5",
+      "needed_before": [
+        "libaudiocompensationfilter.so",
+        "libnvram.so",
+        "libnativehelper.so",
+        "libcutils.so",
+        "libutils.so",
+        "libblisrc32.so",
+        "libbessound_hd_mtk.so",
+        "libmtklimiter.so",
+        "libmtkshifter.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "8c954ffbc87859222874adf8622e9dc00aa99d76d91fd4acbe221992c0329aac",
+      "needed_after": [
+        "libutilscallstack.so",
+        "libaudiocompensationfilter.so",
+        "libnvram.so",
+        "libnativehelper.so",
+        "libcutils.so",
+        "libutils.so",
+        "libblisrc32.so",
+        "libbessound_hd_mtk.so",
+        "libmtklimiter.so",
+        "libmtkshifter.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib/libmtkcam_stdutils.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "e79f8825b6da4e77b6679f2583f89b00dd922a2c2c092bc8ff929d8631ab702a",
+      "needed_before": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "f4bae4d0a88dd2011fe33e6087ccb50f3e85a44dad6b40693520749ba475e5e3",
+      "needed_after": [
+        "libutilscallstack.so",
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib/mtk-rilproxy.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "d49d470a6b41545d568aff38150e64c04f194a5e036594e7507a725793d306c1",
+      "needed_before": [
+        "liblog.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libutils.so",
+        "librilproxy.so",
+        "librilproxyutils.so",
+        "libratconfig.so",
+        "libmedia.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libaed.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "c7dbe162da093252783063c581305f7570378cbf2fe1e04215ee153e57a36db7",
+      "needed_after": [
+        "libutilscallstack.so",
+        "liblog.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libutils.so",
+        "librilproxy.so",
+        "librilproxyutils.so",
+        "libratconfig.so",
+        "libmedia.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libaed.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib64/libaudiocomponentengine.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "418ca9f9bfa39d9baf6c9963ca513ebcf18c89b035d9f68eac4792d7b686f3ee",
+      "needed_before": [
+        "libaudiocompensationfilter.so",
+        "libnvram.so",
+        "libnativehelper.so",
+        "libcutils.so",
+        "libutils.so",
+        "libblisrc32.so",
+        "libbessound_hd_mtk.so",
+        "libmtklimiter.so",
+        "libmtkshifter.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "8d6dd42f423f2991c3f4ca1c9e1a40debdcc0979a71bcd548afc0e706d6b6b4f",
+      "needed_after": [
+        "libutilscallstack.so",
+        "libaudiocompensationfilter.so",
+        "libnvram.so",
+        "libnativehelper.so",
+        "libcutils.so",
+        "libutils.so",
+        "libblisrc32.so",
+        "libbessound_hd_mtk.so",
+        "libmtklimiter.so",
+        "libmtkshifter.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib64/libcam_utils.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "9b78e18acf71b3fc8c4529d4eb2633a8038501e933444b28c82eaad7d153863f",
+      "needed_before": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libdl.so",
+        "libui.so",
+        "libsync.so",
+        "libhardware.so",
+        "libgralloc_extra.so",
+        "libcamera_metadata.so",
+        "libcamera_client.so",
+        "libmtkcam_fwkutils.so",
+        "libmtk_mmutils.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "9fc05db10b26b44a1e06102295fc140c400bc74d1ffcf50c2c3ce995fb164955",
+      "needed_after": [
+        "libutilscallstack.so",
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libdl.so",
+        "libui.so",
+        "libsync.so",
+        "libhardware.so",
+        "libgralloc_extra.so",
+        "libcamera_metadata.so",
+        "libcamera_client.so",
+        "libmtkcam_fwkutils.so",
+        "libmtk_mmutils.so",
+        "libion.so",
+        "libion_mtk.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib64/libmtkcam_stdutils.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "36860c5e4eb1a7d2a41d376d46403ed40330af2b0def5971025d2d8bd364187f",
+      "needed_before": [
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "539039d1dddf4d3ff782509efbdcb0c7c1497136b8256cca1b8dedc0ce08675d",
+      "needed_after": [
+        "libutilscallstack.so",
+        "liblog.so",
+        "libutils.so",
+        "libcutils.so",
+        "libsync.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib64/mtk-rilproxy.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "92c073770568e00bf2c57a822171d527ffa389acda2cd5da8e9b3ecd9e94553e",
+      "needed_before": [
+        "liblog.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libutils.so",
+        "librilproxy.so",
+        "librilproxyutils.so",
+        "libratconfig.so",
+        "libmedia.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libaed.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "c775d550965f1e4c412013db945c88831f84b9749bbc799b6f7d63954360ce43",
+      "needed_after": [
+        "libutilscallstack.so",
+        "liblog.so",
+        "libbinder.so",
+        "libcutils.so",
+        "libutils.so",
+        "librilproxy.so",
+        "librilproxyutils.so",
+        "libratconfig.so",
+        "libmedia.so",
+        "libmal.so",
+        "libmdfx.so",
+        "libaed.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "vendor/lib/hw/gralloc.mt6755.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "1c95d4ac859693ba2f51c40f51f9d7460288bea15f76f1669a51c6827326f56d",
+      "needed_before": [
+        "libGLESv1_CM.so",
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libhardware.so",
+        "libion.so",
+        "libion_mtk.so",
+        "liblog.so",
+        "libm.so",
+        "libstdc++.so",
+        "libutils.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "9be1b5a6ed86f59f0d6a759fcc1febc9058993ea54186d34a768e003645a966b",
+      "needed_after": [
+        "libutilscallstack.so",
+        "libGLESv1_CM.so",
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libhardware.so",
+        "libion.so",
+        "libion_mtk.so",
+        "liblog.so",
+        "libm.so",
+        "libstdc++.so",
+        "libutils.so"
+      ]
+    },
+    {
+      "path": "vendor/lib64/hw/gralloc.mt6755.so",
+      "add_needed": [
+        "libutilscallstack.so"
+      ],
+      "before_sha256": "29ecc297ec543eb07b19470ac1a7c4bdcb91f603c7372a999ac0f3ff6c2f85ca",
+      "needed_before": [
+        "libGLESv1_CM.so",
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libhardware.so",
+        "libion.so",
+        "libion_mtk.so",
+        "liblog.so",
+        "libm.so",
+        "libstdc++.so",
+        "libutils.so"
+      ],
+      "reason": "CallStack moved from libutils to libutilscallstack on newer Android.",
+      "after_sha256": "eb9d6c23e6ff36040c5a034dd25a3629d9ecc6652b9f60dd0b16fc1e02a1c832",
+      "needed_after": [
+        "libutilscallstack.so",
+        "libGLESv1_CM.so",
+        "libc.so",
+        "libcutils.so",
+        "libdl.so",
+        "libgralloc_extra.so",
+        "libhardware.so",
+        "libion.so",
+        "libion_mtk.so",
+        "liblog.so",
+        "libm.so",
+        "libstdc++.so",
+        "libutils.so"
       ]
     }
   ]

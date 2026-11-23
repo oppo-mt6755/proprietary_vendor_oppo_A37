@@ -8,7 +8,7 @@ provenance JSON files record the mixed sources without changing those origins.
 
 Device HALs, daemons, firmware and input mappings live below proprietary/vendor/.
 aptX and aptX HD encoders live below proprietary/lib and proprietary/lib64,
-matching the Hermes system-library layout and Oreo Bluetooth soname lookup.
+matching the Hermes system-library layout.
 ACCDET.kl and mtk-kpd.kl cover headset/physical keypad input. A minimal
 mtk-tpd-kpd.kl maps the controller Menu scan code to Recents; other
 input configuration and ICU data use platform defaults. Hermes fuelgauged
@@ -24,15 +24,18 @@ Donor init scripts are excluded; the device tree supplies the validated service
 configuration. Blobs registered as native build modules are excluded from the
 generated copy rules.
 
-Shim dependencies are embedded in the 47 consuming ELFs with patchelf, rather
+Shim dependencies are embedded in the 56 consuming ELFs with patchelf, rather
 than TARGET_LD_SHIM_LIBS. shim-dependencies.json records the original/patched
 hashes and complete dependency order. Run `python3 fixup-shims.py` to verify;
 use `--apply` to reproduce the changes from original blobs with patchelf 0.18.0.
 Historical provenance hashes describe their earlier stages; this manifest records
-the final transformations. The camera client also changes its GraphicBuffer
-allocation from 128 to 136 bytes to match the platform object; the guarded
-instruction patch is recorded and reproduced before adding DT_NEEDED.
+the final transformations. The camera client and MTK encoder allocate 160-byte GraphicBuffer objects
+to match Android 10; guarded instruction patches are recorded and reproduced
+before adding DT_NEEDED.
 
 Run device/oppo/A37/setup-makefiles.sh to regenerate Android.mk and A37-vendor.mk.
 Extraction uses the matching device extract-files.sh and its pinned SHA-1 list;
 factory files have no pin, while donor/local files are verified before replacement.
+
+Android 10 moved CallStack into libutilscallstack. Its legacy consumers carry
+that DT_NEEDED dependency directly; no global libutils replacement is used.
