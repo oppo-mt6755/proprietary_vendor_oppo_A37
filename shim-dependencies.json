@@ -3952,7 +3952,7 @@
       "path": "vendor/lib/libmnl.so",
       "add_needed": [],
       "before_sha256": "2075f44bd31c3fc08b574dc44494bd13edef6f13526a112f5945d055bb581f4e",
-      "after_sha256": "1722620aa40c74e09bd002a420621a7b65810e7655183be8d5e8a5bf6a572bdd",
+      "after_sha256": "b6200a983bbbdc3f7552c75f0da913bdf04054aa310c0cc2165944a348f43cc3",
       "needed_before": [
         "libc.so",
         "libstdc++.so",
@@ -3969,6 +3969,18 @@
           "before": "08b5064b7b4403eb8000f6f792ec002814bf4ff0ff30002008bd00bfd4cb2200",
           "after": "08b5064b7b4403eb8000b0f900100131eed0f6f78eec4142804108bdd4cb2200",
           "reason": "Make the local mutex table deletion helper idempotent for bionic destroyed state 0xffff. First destruction and locked-mutex errors still use pthread_mutex_destroy; reinitialization is unchanged."
+        },
+        {
+          "offset": 213940,
+          "before": "07f54c57a0b297f83c20",
+          "after": "204625f0ddfd00f025b8",
+          "reason": "Send the receiver's fallback week calculation to the shared resolver at 0x59f74. Preserve the preceding check for a matching receiver time reference."
+        },
+        {
+          "offset": 368500,
+          "before": "2249794409680b6b03f54c5393f83c20012a1fd193f83b30022b98bf40f204431ad9032b16d1184a00ea0203002b05da5a1e6fea82516fea91530133",
+          "after": "10b5c0f309040020abf76eeb094988420ddb401a0849b0fbf1f0b0f5006f06d3001b00f50070800a04eb802010bd04f5006010bd803dd512803a0900",
+          "reason": "Replace the fixed legacy pivot with the closest occurrence of the 10-bit week to Android time, using the existing time PLT entry at 0x565c. Use the 2019 GPS era before Android has a usable clock."
         }
       ]
     },

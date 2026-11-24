@@ -49,3 +49,8 @@ does not add a legacy TLS library or change certificate-verification settings.
 The MNL mutex-table deletion helper checks bionic's destroyed state before a
 second destroy. Other states still use pthread_mutex_destroy and retain its
 locked-mutex error. The guarded instruction change is local to libmnl.so.
+
+The two GPS week rollover paths in libmnl.so resolve the 10-bit broadcast week
+against the Android wall clock. When that clock is unset, they use the GPS era
+beginning in 2019. The fix leaves NMEA validity and the receiver's fix status
+under the receiver's control.
