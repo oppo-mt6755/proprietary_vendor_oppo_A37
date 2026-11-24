@@ -3971,6 +3971,110 @@
           "reason": "Make the local mutex table deletion helper idempotent for bionic destroyed state 0xffff. First destruction and locked-mutex errors still use pthread_mutex_destroy; reinitialization is unchanged."
         }
       ]
+    },
+    {
+      "path": "vendor/lib/hw/audio.primary.mt6755.so",
+      "add_needed": [],
+      "before_sha256": "63bac3d7c95ac4988f8291ff5ab7c91ba525a5e7c4bb3400726ec42b7ddc81e5",
+      "after_sha256": "79504f3970cd03c9ecbff8d7aa73f18d77b05592be19a7292843df041c25f310",
+      "needed_before": [
+        "libmedia.so",
+        "libcutils.so",
+        "libutils.so",
+        "libhardware_legacy.so",
+        "libhardware.so",
+        "libdl.so",
+        "libaudiocustparam.so",
+        "libaudioutils.so",
+        "libtinyalsa.so",
+        "libtinycompress.so",
+        "libcustom_nvram.so",
+        "libtinyxml.so",
+        "libaudiotoolkit.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libmedia.so",
+        "libcutils.so",
+        "libutils.so",
+        "libhardware_legacy.so",
+        "libhardware.so",
+        "libdl.so",
+        "libaudiocustparam.so",
+        "libaudioutils.so",
+        "libtinyalsa.so",
+        "libtinycompress.so",
+        "libcustom_nvram.so",
+        "libtinyxml.so",
+        "libaudiotoolkit.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 494408,
+          "before": "f0482de910d04de20160a0e10240a0e1106a00ee70109fe570209fe50070a0e1c00af7ee5c009fe50350a0e101108fe000308fe002208fe00300a0e308408de50c508de5000bcded6cfbfeeb1c0703e30520a0e1006087e7500703e30430a0e1004087e7480703e3005087e74c0703e3001097e70700a0e14e01ffeb0000a0e310d08de2f088bde8",
+          "after": "f0482de910d04de21cc703e30cc080e000108ce534208ce52c308ce5101a00ee0e0af2ee020052e304005213050052130900001a0251c3e3020113e37060a0030860a013060015e10200000a016045e2060015e10000000a0c0af1ee200a20eec00abcfe101a10ee30108ce503c0a0e10230a0e10c20a0e14e01ffeb0000a0e310d08de2f088bde8",
+          "reason": "Convert normalized voice volume to the active MTK gain table index, cache the index for speech-band changes, then call the existing gain setter"
+        }
+      ]
+    },
+    {
+      "path": "vendor/lib64/hw/audio.primary.mt6755.so",
+      "add_needed": [],
+      "before_sha256": "2a1abba3df3753df02f5078a1f6412b1d0729bdce229f9a2192b5e5f687452ef",
+      "after_sha256": "c0b4f857275c17879792f1ae83a37609049629764ca7c35a41e34a4063228444",
+      "needed_before": [
+        "libmedia.so",
+        "libcutils.so",
+        "libutils.so",
+        "libhardware_legacy.so",
+        "libhardware.so",
+        "libdl.so",
+        "libaudiocustparam.so",
+        "libaudioutils.so",
+        "libtinyalsa.so",
+        "libtinycompress.so",
+        "libcustom_nvram.so",
+        "libtinyxml.so",
+        "libaudiotoolkit.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "needed_after": [
+        "libmedia.so",
+        "libcutils.so",
+        "libutils.so",
+        "libhardware_legacy.so",
+        "libhardware.so",
+        "libdl.so",
+        "libaudiocustparam.so",
+        "libaudioutils.so",
+        "libtinyalsa.so",
+        "libtinycompress.so",
+        "libcustom_nvram.so",
+        "libtinyxml.so",
+        "libaudiotoolkit.so",
+        "libaed.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 514732,
+          "before": "e923bc6df65701a9f44f02a9fd7b03a9fdc30091081ca04ef303022af403012a610300b0620300d0430300b0f50300aa00c1221e2148129142e80a9163380b91e0070032e403142ae503132a061bff97a1aa78b9e00315aae203132aa87a38bde303142ab4ae38b9b3a638b9da22ff97fd7b43a9e0031f2af44f42a9f65741a9e923c46cc0035fd6",
+          "after": "e923bc6df65701a9f44f02a9fd7b03a9fdc30091007838bd01ac38b902a438b9e303012a01d0251e7f0800716418447a6418457a6101005448780012090500511f01096ac1000054c90180525f00007129a59f1a1f0d096a410000540190231e0008211e0100241e01a838b9da22ff97fd7b43a9e0031f2af44f42a9f65741a9e923c46cc0035fd6",
+          "reason": "Convert normalized voice volume to the active MTK gain table index, cache the index for speech-band changes, then call the existing gain setter"
+        }
+      ]
     }
   ]
 }
