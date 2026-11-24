@@ -4075,6 +4075,77 @@
           "reason": "Convert normalized voice volume to the active MTK gain table index, cache the index for speech-band changes, then call the existing gain setter"
         }
       ]
+    },
+    {
+      "path": "vendor/bin/nfcstackp",
+      "add_needed": [],
+      "before_sha256": "3376e9bf27f22f5fab75c6c649411e69c80a1102602aabb765f29ee44e49373f",
+      "after_sha256": "f08dab55567ed01936f8e0496a198d3db08c44eb898a28ce96f98a04c992bac5",
+      "needed_before": [
+        "libc.so",
+        "libcutils.so",
+        "libhardware.so",
+        "libm.so",
+        "libmtknfc.so",
+        "libstdc++.so",
+        "libutils.so"
+      ],
+      "needed_after": [
+        "libc.so",
+        "libcutils.so",
+        "libhardware.so",
+        "libm.so",
+        "libmtknfc.so",
+        "libstdc++.so",
+        "libutils.so"
+      ],
+      "byte_patches": [
+        {
+          "offset": 13128,
+          "before": "5cd13f49",
+          "after": "5ed05be0",
+          "reason": "Route AOSP HAL replies on task 7 through the middleware socket"
+        },
+        {
+          "offset": 17757,
+          "before": "2f646174612f6e66635f736f636b65742f6d746b6e66635f73657276657200",
+          "after": "2f646174612f76656e646f722f6e66632f6d746b6e66635f73657276657200",
+          "reason": "Move the middleware socket to vendor data"
+        },
+        {
+          "offset": 19661,
+          "before": "2f73797374656d2f6574632f6e666373652e63666700",
+          "after": "2f76656e646f722f6574632f6e666373652e63666700",
+          "reason": "Load secure element configuration from vendor"
+        },
+        {
+          "offset": 19757,
+          "before": "2f73797374656d2f6574632f6e66632e63666700",
+          "after": "2f76656e646f722f6574632f6e66632e63666700",
+          "reason": "Load NFC configuration from vendor"
+        }
+      ]
+    },
+    {
+      "path": "vendor/lib/libmtknfc.so",
+      "add_needed": [
+        "libshim_atomic.so"
+      ],
+      "before_sha256": "244e356df921a7dcb7d4633adde1c6e9602a933056164e602d5434a99411fbe6",
+      "after_sha256": "38218104af0db91ea3824d1260a341adb4c62b89219d19ef19181c2a02ae24b8",
+      "needed_before": [
+        "libc.so",
+        "libcutils.so",
+        "libm.so",
+        "libstdc++.so"
+      ],
+      "needed_after": [
+        "libshim_atomic.so",
+        "libc.so",
+        "libcutils.so",
+        "libm.so",
+        "libstdc++.so"
+      ]
     }
   ]
 }
